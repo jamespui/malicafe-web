@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "f291f9cb-9af3-4710-af2e-a105a8a2aa3e",
+		"name": "Malicafe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "23cf5d96-3fb3-468f-9684-c8b66b071261",
+			"name": "User",
+			"item": [
+				{
+					"_postman_id": "aa44c12c-09fa-4c35-a238-3721279972fd",
+					"name": "User Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userName",
+									"value": "laohanme",
+									"sessionValue": "laohanme",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "lao",
+									"sessionValue": "lao",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "han",
+									"sessionValue": "han",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "laohan@gmail.com",
+									"sessionValue": "laohan@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"sessionValue": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3018/api/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3018",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
