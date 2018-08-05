@@ -1,0 +1,17 @@
+extends common/base.pug
+block css
+block content
+
+    .container.my-5
+        .row
+            each i in Array(10)
+                .col-lg-3.col-6
+                    .card.my-2()
+                        img.card-img-top(src='../static/custom/images/meejawa.jpg', alt='Card image cap')
+                        .card-body.text-center
+                            h5.card-title Mee Jawa
+                            p.card-text
+                                | RM 10
+                            a.btn.btn-outline-dark.text-uppercase(href='#') Add to cart
+
+block scripts

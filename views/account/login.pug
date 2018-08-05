@@ -1,0 +1,48 @@
+extends ../common/base.pug
+block css
+block content
+    div(ng-app='appLogin' ng-controller='ctrLogin')
+        .container.my-5
+            .d-flex.justify-content-center
+                .col-lg-6.col-12
+                    .card
+                        .card-body.p-5
+                            .text-center
+                                h4.text-uppercase login
+                                p.text-muted Welcome to Malicafe
+                            hr
+                            form
+                                .form-group
+                                    label Email
+                                    input.form-control(type='text')
+                                .form-group
+                                    label Password
+                                    input.form-control(type='password')
+
+                                .row
+                                    .col-lg-6.col-12
+                                        a.text-muted(href="#") Forgot your password?
+                                .my-3.text-center
+                                    button.btn.btn-outline-dark.btn-lg.text-uppercase.w-50(type='submit') Login
+
+
+
+
+block scripts
+    script(src='../static/vendor/js/angular.min.js')
+    script.
+      const strAppName = 'appLogin';
+      const strCtrName = 'ctrLogin';
+      const app = angular.module(strAppName, []);
+
+      app.config([
+        '$httpProvider', function($httpProvider) {
+          $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+          $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+      app.controller(strCtrName, [
+        '$scope', '$http', '$httpParamSerializer',
+        function($scope, $http, $httpParamSerializer) {
+
+        }]);
