@@ -28,4 +28,16 @@ app.get('/register', function(req, res) {
     res.render('account/register', {title: 'Register'});
 });
 
+app.get('/resetpassword', function(req, res) {
+    res.render('account/resetpassword', {title: 'Reset Password'});
+});
+
+app.get('/forgotpassword', function(req, res) {
+    res.render('account/forgotpassword', {title: 'Forgot Password'});
+});
+
+app.get('/shoppingcart', function(req, res) {
+    res.render('common/shoppingcart', {title: 'Shopping Cart'});
+});
+
 module.exports = app;

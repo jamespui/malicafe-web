@@ -1,34 +1,41 @@
 extends ../common/base.pug
 block css
 block content
-    div(ng-app='appRegister' ng-controller='ctrRegister')
-        .container.my-5
-            .d-flex.justify-content-center
-                .col-lg-6.col-12
-                    .card
-                        .card-body.p-5
-                            .text-center
-                                h4.text-uppercase register
-                                p.text-muted Please fill in this form to create an account.
-                            hr
-                            form
-                                .form-group
-                                    label Username
+    section.probootstrap-section
+        div(ng-app='appRegister' ng-controller='ctrRegister')
+            .container
+                .probootstrap-animate
+                    .text-center.probootstrap-animate
+                        .probootstrap-heading.dark
+                            h1.primary-heading Register
+                            h3.secondary-heading Register
+
+                    .col-md-12
+                        form.probootstrap-form(method='post')
+                            .form-group
+                                label Username
+                                .form-field
                                     input.form-control(type='text' ng-model='registerData.userName')
-                                .form-group
-                                    label Email
+                            .form-group
+                                label Email
+                                .form-field
                                     input.form-control(type='email' ng-model='registerData.email')
-                                .form-group
-                                    label First Name
+                            .form-group
+                                label First Name
+                                .form-field
                                     input.form-control(type='text' ng-model='registerData.firstName')
-                                .form-group
-                                    label Last Name
+                            .form-group
+                                label Last Name
+                                .form-field
                                     input.form-control(type='text' ng-model='registerData.lastName')
-                                .form-group
-                                    label Password
+                            .form-group
+                                label Password
+                                .form-field
                                     input.form-control(type='password' ng-model='registerData.password')
-                                .text-center
-                                    button.btn.btn-outline-dark.btn-lg.text-uppercase.w-50(ng-click='register()') Register
+
+                            .form-group
+                                input.btn.btn-primary.btn-lg(ng-click='register()' value='Register')
+
 
 
 
