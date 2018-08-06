@@ -3,7 +3,7 @@ const app = new express.Router();
 const mongoose = require('mongoose');
 const apiURL = require('./api');
 
-mongoose.connect('mongodb://root:password@localhost:27017/malicafeDB?authSource=admin', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost:27017/malicafeDB?authSource=admin', {useNewUrlParser: true});
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
