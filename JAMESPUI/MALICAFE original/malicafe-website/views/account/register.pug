@@ -1,0 +1,36 @@
+extends ../common/base.pug
+
+block content
+    body.my-login-page
+        section.h-100
+            .container.h-100
+                .row.justify-content-md-center.h-100
+                    .card-wrapper
+                        .brand
+                            img(src='../static/images/logo.png')
+                        .card.fat
+                            .card-body
+                                h4.card-title Register
+                                form(method='POST')
+                                    .form-group
+                                        label(for='name') Name
+                                        input#name.form-control(type='text', name='name', required='', autofocus='')
+                                    .form-group
+                                        label(for='email') E-Mail Address
+                                        input#email.form-control(type='email', name='email', required='')
+                                    .form-group
+                                        label(for='password') Password
+                                        input#password.form-control(type='password', name='password', required='', data-eye='')
+                                    .form-group
+                                        label
+                                            input(type='checkbox', name='aggree', value='1')
+                                            |  I agree to the Terms and Conditions
+                                    .form-group.no-margin
+                                        button.btn.btn-primary.btn-block(type='submit')
+                                            | Register
+                                    .margin-top20.text-center
+                                        | Already have an account?
+                                        a(href='login') Login
+                        .footer
+                            | Copyright © MALICAFE 2018
+
