@@ -1,15 +1,16 @@
 extends ../common/base.pug
 block css
 block content
-    div(ng-app='appLogin' ng-controller='ctrLogin')
-        .container.my-5
-            .d-flex.justify-content-center
-                .col-lg-6.col-12
-                    .card
-                        .card-body.p-5
-                            .text-center
-                                h4.text-uppercase login
-                                p.text-muted Welcome to Malicafe
+    section.probootstrap-section
+        div(ng-app='appLogin' ng-controller='ctrLogin')
+            .container
+                .probootstrap-animate
+                    .text-center.probootstrap-animate
+                        .probootstrap-heading.dark
+                            h1.primary-heading Login
+                            h3.secondary-heading welcome back
+
+                    .col-md-12
                             hr
                             form
                                 .form-group
@@ -21,9 +22,9 @@ block content
 
                                 .row
                                     .col-lg-6.col-12
-                                        a.text-muted(href="#") Forgot your password?
+                                        a.text-muted(href="/forgotpassword") Forgot your password?
                                 .my-3.text-center
-                                    button.btn.btn-outline-dark.btn-lg.text-uppercase.w-50(type='submit') Login
+                                    button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
                                 .text-center
                                     | Don't have an account? &nbsp
                                     a(href='/register') Create One

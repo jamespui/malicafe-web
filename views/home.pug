@@ -11,7 +11,8 @@ block content
                                 h1.primary-heading Welcome To
                                 h3.secondary-heading MALICAFE
                                 p.sub-heading
-                                    | Introduction
+                                    | The MALICAFE offers a comfortable environment for everyone.
+                                    | Our name is what we strive to be. Since opening our doors in 2015, the company wants to bring conveniences to hungry diners by providing the marvelous delivery service. Our mission is to provide reliable food delivery to diners and at the same time, assisting cafe to manage their delivery manpower efficiently.
 
             li.overlay(style='background-image: url(../static/resto/img/kolomee.jpg)')
                 .container
@@ -21,7 +22,7 @@ block content
                                 h1.primary-heading Dine
                                 h3.secondary-heading With Us
                                 p.sub-heading
-                                    | Introduction
+                                    | We have been providing fresh, fast, and friendly Sarawak fast food since 2015. MALICAFE isn’t just about authentic Sarawak food, in the spirit of diversifying the food culture and the depth of culinary types of the world around, we’re also keen on ensuring that diners are given the exposure of diversification which allows everyone to have a catch and the enjoyment of the experience of trying something new or that’s out of the norm.
 
             li.overlay(style='background-image: url(../static/resto/img/malicafe2.jpg)')
                 .container
@@ -31,7 +32,8 @@ block content
                                 h1.primary-heading Enjoy
                                 h3.secondary-heading With Us
                                 p.sub-heading
-                                    | Introduction
+                                    | Easy Meal with MALICAFE ensures that our business propels into success and what to this today is to upkeep with the standards of customer satisfaction.
+                                    | Meals are delivered to customer’s doorstep with just a few simple clicks. Paying your food is also as flexible as you can want it to be. Not a fan of handling notes in your wallet, no problem, process your transactions with your credit or debit card.
 
     section.probootstrap-section.probootstrap-bg-white
         .container
@@ -42,12 +44,12 @@ block content
                         h3.secondary-heading Our Store
                         span.seperator * * *
                     p
-                        | Introduction ********* *********** *********** ****************** ************ **************** ********
+                        | MaliCafé is located at Jalan Belatok, Kuching, Sarawak. This café operates from 6am till 12am on every single day. There are roughly about 10 stalls in this café which has different type of menus to offer.
                     p
                         a.probootstrap-custom-link(href='#') About Us
                 .col-md-6.col-md-push-1.probootstrap-animate
                     p
-                        img.img-responsive(src='../static/resto/img/malicafe3.jpg', alt='Free Bootstrap Template by uicookies.com')
+                        img.img-responsive(src='../static/resto/img/malicafe3.jpg', alt='malicafe')
             // END row
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/rojak.jpg);', data-stellar-background-ratio='0.85', data-section='specialties')
         .container
@@ -66,40 +68,47 @@ block content
                             .image(style='background-image: url(../static/resto/img/kolomee.jpg);')
                             .text.text-center
                                 h3 Kolo Mee
-                                p Calories ************** ******** ********** **************
+                                p (470 calories)
+                                p Kolok Mee is an ever popular dish for breakfast, lunch and even dinner. This dish of light yellow egg noodle is served with lard, slices barbecued meats and minced meat. You can get Halal version from Malay stall
 
                         .probootstrap-cell.reverse.probootstrap-animate(data-animate-effect='fadeIn')
                             .image(style='background-image: url(../static/resto/img/meejawa.jpg);')
                             .text.text-center
                                 h3 Mee Jawa
-                                p Calories ************** ******** ******** **************
+                                p (430.5 calories)
+                                p Mee Jawa is blanched yellow noodles served with shredded chickens, bean sprouts, potato, hard -boiled egg and slice tofu, topped with delicious tomato based rich gravy and a slice of lime for extra kick.
 
                         .probootstrap-cell.probootstrap-animate(data-animate-effect='fadeIn')
                             .image(style='background-image: url(../static/resto/img/rojak.jpg);')
                             .text.text-center
                                 h3 Rojak
-                                p Calories ************** ************ ******* **************
+                                p (752 calories)
+                                p Rojak is a 'salad' of either fruits such as pineapples, and vegetables like cucumber , turnip, tofu, and fried dough, and mixed in shrimp paste and sprinkled with crushed peanuts.
 
                     .half
                         .probootstrap-cell.probootstrap-animate(data-animate-effect='fadeIn')
                             .image(style='background-image: url(../static/resto/img/steamchickenrice.jpg);')
                             .text.text-center
                                 h3 Steamed Chicken Rice
-                                p Calories ************** ********** *********** ********
+                                p (278 calories)
+                                p The rice comes from the grains that have been pre-fried in chicken fat and then cooked in chicken broth. The dish is accompanied with a chilli sauce made of chillies, chicken broth, garlic and ginger.
 
 
                         .probootstrap-cell.reverse.probootstrap-animate(data-animate-effect='fadeIn')
                             .image(style='background-image: url(../static/resto/img/roticanai.jpg);')
                             .text.text-center
                                 h3 Rota Canai
-                                p Calories ************** ************ ************* **************
+                                p (301 calories)
+                                p Roti canai dough is made with flour, milk, salt, sugar and ghee (or oil) and accompanied with a classic curry to dipped in.
 
 
                         .probootstrap-cell.probootstrap-animate(data-animate-effect='fadeIn')
                             .image(style='background-image: url(../static/resto/img/lobak.jpg);')
                             .text.text-center
                                 h3 LoBak
-                                p Calories ************** *********** ************ **************
+                                p (353 calories)
+                                p It is essentially a composition of various meats and vegetables and other ingredients, such as a sausage-like roll consisting of minced pork and prawn (or fish) seasoned with five-spice powder.
+                                hr
 
 
 
@@ -117,62 +126,79 @@ block content
                     ul.menus
                         li
                             figure.image
-                                img(src='../static/resto/img/kolomee2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/kolomee2.jpg', alt='kolomee')
                             .text
                                 span.price RM3.00
                                 h3 kolomee
-                                p calories
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='add to cart')
+
+
+
+
                         li
                             figure.image
-                                img(src='../static/resto/img/lok-lok2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/lok-lok2.jpg', alt='lok-lok')
                             .text
                                 span.price RM2.00/one
                                 h3 lok-lok
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
                         li
                             figure.image
-                                img(src='../static/resto/img/nasiayamlemon2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/nasiayamlemon2.jpg', alt='lemonchickenrice')
                             .text
                                 span.price RM5.00
                                 h3 lemon chicken rice
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+
                         li
                             figure.image
-                                img(src='../static/resto/img/laksa2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/laksa2.jpg', alt='laksa')
                             .text
                                 span.price RM5.00
                                 h3 laksa
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+
                 .col-md-6
                     ul.menus
                         li
                             figure.image
-                                img(src='../static/resto/img/rojak2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/rojak2.jpg', alt='rojak')
                             .text
                                 span.price RM4.00/5.00
                                 h3 Rojak
-                                p calories
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='add to cart')
                         li
                             figure.image
-                                img(src='../static/resto/img/lobak2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/lobak2.jpg', alt='lobak')
                             .text
                                 span.price RM5.00
                                 h3 lobak
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+
                         li
                             figure.image
-                                img(src='../static/resto/img/nasilemak.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/nasilemak.jpg', alt='nasilemak')
                             .text
                                 span.price RM5.00
                                 h3 nasi lemak ayam
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+
                         li
                             figure.image
-                                img(src='../static/resto/img/tomatokuehtiaw2.jpg', alt='Free Bootstrap Template by uicookies.com')
+                                img(src='../static/resto/img/tomatokuehtiaw2.jpg', alt='tomatokuehtiaw')
                             .text
                                 span.price RM5.00
                                 h3 tomato kueh tiaw
-                                p calories
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/lobak.jpg);', data-stellar-background-ratio='0.85', data-section='reservation')
         .container
             .row
@@ -204,14 +230,14 @@ block content
                 .col-md-12.probootstrap-animate
                     .probootstrap-block-image
                     figure
-                        img.img-responsive(src='../static/resto/img/order.png', alt='Free Bootstrap Template by uicookies.com')
+                        img.img-responsive(src='../static/resto/img/order.png', alt='how to order')
                     .col-md-4.col-sm-4.probootstrap-animate
                         .text
 
                             h3
                                 a ORDER
                             p
-                                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.
+                                | Select your meals from the menu list and confirm your order then proceed with the payment via credit card or debit card
 
                     .col-md-4.col-sm-4.probootstrap-animate
                         .text
@@ -219,7 +245,7 @@ block content
                             h3
                                 a PAYMENT
                             p
-                                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.
+                                | We only accept online card payments. Either by credit  card (VISA & Master) or debit card
 
                     .col-md-4.col-sm-4.probootstrap-animate
                         .text
@@ -227,7 +253,7 @@ block content
                             h3
                                 a DELIVERY
                             p
-                                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto provident qui tempore natus quos quibusdam soluta at.
+                                | Delivery of your meals are depends on your location and the amount of foods you’ve ordered. For large corporate orders, we may require extended time.
 
 
     section.probootstrap-section.probootstrap-bg-white(data-section='contact')
@@ -238,7 +264,7 @@ block content
                         h1.primary-heading Contact
                         h3.secondary-heading Let's Chat
                     p
-                        | Voluptatibus quaerat laboriosam fugit non Ut consequatur animi est molestiae enim a voluptate totam natus modi debitis dicta impedit voluptatum quod sapiente illo saepe explicabo quisquam perferendis labore et illum suscipit
+                        | Easy Meal with Mali Cfae would love to hear from you. What do you love to eat? How do you like your meals? How do you want us to improve in our service?  Tell us MORE, to serve you better.
                 .col-md-6.col-md-push-1.probootstrap-animate
                     form.probootstrap-form(method='post')
                         .form-group
