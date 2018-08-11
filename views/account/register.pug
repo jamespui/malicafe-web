@@ -2,39 +2,31 @@ extends ../common/base.pug
 block css
 block content
     section.probootstrap-section
-        div(ng-app='appRegister' ng-controller='ctrRegister')
-            .container
-                .probootstrap-animate
-                    .text-center.probootstrap-animate
-                        .probootstrap-heading.dark
-                            h1.primary-heading Register
-                            h3.secondary-heading welcome to malicafe
+        .container
+            .probootstrap-animate
+                .text-center.probootstrap-animate
+                    .probootstrap-heading.dark
+                        h1.primary-heading Register
+                        h3.secondary-heading welcome to malicafe
 
-                    .col-md-12
-                        form.probootstrap-form(method='post')
-                            .form-group
-                                label Username
-                                .form-field
-                                    input.form-control(type='text' ng-model='registerData.userName')
-                            .form-group
-                                label Email
-                                .form-field
-                                    input.form-control(type='email' ng-model='registerData.email')
-                            .form-group
-                                label First Name
-                                .form-field
-                                    input.form-control(type='text' ng-model='registerData.firstName')
-                            .form-group
-                                label Last Name
-                                .form-field
-                                    input.form-control(type='text' ng-model='registerData.lastName')
-                            .form-group
-                                label Password
-                                .form-field
-                                    input.form-control(type='password' ng-model='registerData.password')
-
-                            .form-group.text-center
-                                input.btn.btn-primary.btn-lg(ng-click='register()' value='Register')
+                .col-md-12
+                    form(action='/signup', method='post')
+                        //.form-group
+                        //    label Username
+                        //    input.form-control(type='text', name='username')
+                        //.form-group
+                        //    label First Name
+                        //    input.form-control(type='text', name='firstname')
+                        //.form-group
+                        //    label First Name
+                        //    input.form-control(type='text', name='lastname')
+                        .form-group
+                            label Email
+                            input.form-control(type='text', name='email')
+                        .form-group
+                            label Password
+                            input.form-control(type='password', name='password')
+                        button.btn.btn-warning.btn-lg(type='submit') Signup
 
 
 
@@ -42,34 +34,3 @@ block content
 
 block scripts
     script(src='../static/vendor/js/angular.min.js')
-    script.
-        const strAppName = 'appRegister';
-        const strCtrName = 'ctrRegister';
-        const app = angular.module(strAppName, []);
-
-        app.config([
-        '$httpProvider', function($httpProvider) {
-          $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-          $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-        }]);
-
-        app.controller(strCtrName, [
-        '$scope', '$http', '$httpParamSerializer',
-        function($scope, $http, $httpParamSerializer) {
-            $scope.registerData = {};
-            $scope.register = function() {
-              $http({
-                  method: 'POST',
-                  url: '/api/register',
-                  data: $httpParamSerializer($scope.registerData),
-                  headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-              }).then(
-                  function successCallback(response) {
-                    console.log(response.data.msg);
-                  },
-
-                  function errorCallback(response) {
-                  }
-              );
-            }
-        }]);

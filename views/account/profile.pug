@@ -1,0 +1,9 @@
+extends ../common/base-bs4.pug
+block css
+block content
+    .container
+        if user
+            if user.local.email
+                h1 Hi
+                =user.local.email
+
