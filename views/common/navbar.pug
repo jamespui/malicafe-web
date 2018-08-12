@@ -21,9 +21,15 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                     a(href='#', data-nav-section='events') how to order
                 li
                     a(href='#', data-nav-section='contact') contact
-                li
-                    a(href='/register') register
-                li
-                    a(href='/login') login
+                if user
+                    if user.local.email
+                    li
+                        a(href='/profile')
+                        =user.local.email
+                else
+                    li
+                        a(href='/register') register
+                    li
+                        a(href='/login') login
                 li
                     a(href='#', data-nav-section='mycart') mycart

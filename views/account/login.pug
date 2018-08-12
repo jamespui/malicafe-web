@@ -11,43 +11,22 @@ block content
                             h3.secondary-heading welcome back
 
                     .col-md-12
-                            hr
-                            form
-                                .form-group
-                                    label Email
-                                    input.form-control(type='text')
-                                .form-group
-                                    label Password
-                                    input.form-control(type='password')
+                        hr
+                        form(action='/login', method='post')
+                            .form-group
+                                label Email
+                                input.form-control(type='text', name='email')
+                            .form-group
+                                label Password
+                                input.form-control(type='password', name='password')
 
-                                .row
-                                    .col-lg-6.col-12
-                                        a.text-muted(href="/forgotpassword") Forgot your password?
-                                .my-3.text-center
-                                    button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
-                                .text-center
-                                    | Don't have an account? &nbsp
-                                    a(href='/register') Create One
-
-
-
-
+                            .row
+                                .col-lg-6.col-12
+                                    a.text-muted(href="/forgotpassword") Forgot your password?
+                            .my-3.text-center
+                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
+                            .text-center
+                                | Don't have an account? &nbsp
+                                a(href='/register') Create One
 
 block scripts
-    script(src='../static/vendor/js/angular.min.js')
-    script.
-      const strAppName = 'appLogin';
-      const strCtrName = 'ctrLogin';
-      const app = angular.module(strAppName, []);
-
-      app.config([
-        '$httpProvider', function($httpProvider) {
-          $httpProvider.defaults.xsrfCookieName = 'csrftoken';
-          $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-        }]);
-
-      app.controller(strCtrName, [
-        '$scope', '$http', '$httpParamSerializer',
-        function($scope, $http, $httpParamSerializer) {
-
-        }]);
