@@ -40,4 +40,16 @@ app.get('/shoppingcart', function(req, res) {
     res.render('common/shoppingcart', {title: 'Shopping Cart'});
 });
 
+app.get('/myaccount', function(req, res) {
+    res.render('account/myaccount', {title: 'My Account'});
+});
+
+app.get('/editaddress', function(req, res) {
+    res.render('account/editaddress', {title: 'My Account'});
+});
+
+app.get('/address', function(req, res) {
+    res.render('account/address', {title: 'My Account'});
+});
+
 module.exports = app;

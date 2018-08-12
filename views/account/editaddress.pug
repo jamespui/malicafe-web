@@ -1,0 +1,31 @@
+extends ../common/base.pug
+block css
+block content
+
+    section.probootstrap-section
+        .container
+            .probootstrap-animate
+                .text-center.probootstrap-animate
+                    .probootstrap-heading.dark
+                        h2.text EDIT ADDRESS
+                        hr
+
+                        .form-group
+                        iframe(height='500px', width='100%', src='/address', style='border-color: #FFA33F;', name='location malicafe')
+
+                        .col-md-12.probootstrap-animate
+                            form.probootstrap-form(method='post')
+                                .form-group
+                                    .form-field
+                                        input.form-control(type='text' placeholder='Search Box')
+                                .form-group
+                                    .form-field
+                                        input.form-control(type='text' ng-model='addressData.address' placeholder='Address')
+                                .form-group
+                                    .form-field
+                                        input.form-control(type='text' ng-model='addressData.address' placeholder='Address')
+                                .form-group
+                                    .form-field
+                                        input.form-control(type='text' ng-model='addressData.address' placeholder='Address')
+                                .form-group.text-center
+                                    button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Save
