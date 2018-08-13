@@ -8,28 +8,31 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                 span.icon-bar
             a.navbar-brand(href='/', title='#{title}') #{title}
         #navbar-collapse.navbar-collapse.collapse
-            ul.nav.navbar-nav.navbar-right
-                li.active
-                    a(href='#', data-nav-section='welcome') home
-                li
-                    a(href='#', data-nav-section='specialties')  specialties
-                li
-                    a(href='#', data-nav-section='menu') menu
-                li
-                    a(href='#', data-nav-section='reservation') location
-                li
-                    a(href='#', data-nav-section='events') how to order
-                li
-                    a(href='#', data-nav-section='contact') contact
-                if user
-                    if user.local.email
+            if user
+                if user.local.email
+                ul.nav.navbar-nav.navbar-right
                     li
                         a(href='/profile')
-                        =user.local.email
-                else
+                            =user.local.email
+                    li
+                        a(href='/logout') Logout
+            else
+                ul.nav.navbar-nav.navbar-right
+                    li.active
+                        a(href='#', data-nav-section='welcome') home
+                    li
+                        a(href='#', data-nav-section='specialties')  specialties
+                    li
+                        a(href='#', data-nav-section='menu') menu
+                    li
+                        a(href='#', data-nav-section='reservation') location
+                    li
+                        a(href='#', data-nav-section='events') how to order
+                    li
+                        a(href='#', data-nav-section='contact') contact
                     li
                         a(href='/register') register
                     li
                         a(href='/login') login
-                li
-                    a(href='#', data-nav-section='mycart') mycart
+                    li
+                        a(href='#', data-nav-section='mycart') mycart

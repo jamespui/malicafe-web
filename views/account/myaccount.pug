@@ -10,6 +10,11 @@ block content
                         h2.text MY ACCOUNT
                         hr
                         .col-md-12
+                            .container
+                                if user
+                                    if user.local.email
+                                        h1 Hi
+                                        =user.local.email
                             form
                                 .form-group
                                     label Your name :
