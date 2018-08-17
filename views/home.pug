@@ -3,14 +3,14 @@ extends common/base.pug
 block content
     section.flexslider(data-section='welcome')
         ul.slides
-            li.overlay(style='background-image: url(../static/resto/img/malicafe.jpg)', data-stellar-background-ratio='1.0')
+            li.overlay(style='background-image: url(../static/resto/img/malicafe666.jpg)', data-stellar-background-ratio='1.0')
                 .container
                     .row
                         .col-md-8.col-md-offset-2
                             .probootstrap-slider-text.text-center.probootstrap-animate.probootstrap-heading
                                 h1.primary-heading Welcome To
                                 h3.secondary-heading MALICAFE
-            li.overlay(style='background-image: url(../static/resto/img/kolomee.jpg)')
+            li.overlay(style='background-image: url(../static/resto/img/kolokmee.jpg)')
                 .container
                     .row
                         .col-md-8.col-md-offset-2
@@ -54,7 +54,7 @@ block content
                 .probootstrap-cell-retro
                     .half
                         .probootstrap-cell.probootstrap-animate(data-animate-effect='fadeIn')
-                            .image(style='background-image: url(../static/resto/img/kolomee.jpg);')
+                            .image(style='background-image: url(../static/resto/img/kolokmee2.jpg);')
                             .text.text-center
                                 h3 Kolo Mee
                                 p (470 calories)
@@ -115,44 +115,93 @@ block content
                     ul.menus
                         li
                             figure.image
-                                img(src='../static/resto/img/kolomee2.jpg', alt='kolomee')
+                                img(src='../static/resto/img/kolokmee3.jpg', alt='kolomee')
                             .text
                                 span.price RM3.00
-                                h3 kolomee
+                                h3 kolo mee
                                 .form-group
-                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='add to cart')
+                                    a.btn.btn-primary.btn-sm.active(href='/mycart' role='button' aria-pressed='true')
+                                        |  ADD TO CART
 
 
+                        li
+                            figure.image
+                                img(src='../static/resto/img/meepok2.jpg', alt='kolomeepok')
+                            .text
+                                span.price RM3.00
+                                h3 kolo mee pok
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='Add to Cart')
 
+                        li
+                            figure.image
+                                img(src='../static/resto/img/meesoup2.jpg', alt='meesoup')
+                            .text
+                                span.price RM3.00
+                                h3 mee soup
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='Add to Cart')
 
                         li
                             figure.image
                                 img(src='../static/resto/img/lok-lok2.jpg', alt='lok-lok')
                             .text
-                                span.price RM2.00/one
                                 h3 lok-lok
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
                         li
                             figure.image
                                 img(src='../static/resto/img/nasiayamlemon2.jpg', alt='lemonchickenrice')
                             .text
-                                span.price RM5.00
                                 h3 lemon chicken rice
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
                         li
                             figure.image
                                 img(src='../static/resto/img/laksa2.jpg', alt='laksa')
                             .text
-                                span.price RM5.00
                                 h3 laksa
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
+
+                        li
+                            figure.image
+                                img(src='../static/resto/img/meejawa2.jpg', alt='meejawa')
+                            .text
+                                h3 mee jawa
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
+
+                        li
+                            figure.image
+                                img(src='../static/resto/img/roticanai.jpg', alt='roticanai')
+                            .text
+                                span.price
+                                h3 roti canai
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
                 .col-md-6
                     ul.menus
+                        li
+                            figure.image
+                                img(src='../static/resto/img/kuehtiaw2.jpg', alt='kolokuehtiaw')
+                            .text
+                                span.price RM3.00
+                                h3 kolo kueh tiaw
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='Add to Cart')
+
+                        li
+                            figure.image
+                                img(src='../static/resto/img/kuehtiawsoup2.jpg', alt='kuehtiawsoup')
+                            .text
+                                span.price RM3.00
+                                h3 kueh tiaw soup
+                                .form-group
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='Add to Cart')
+
                         li
                             figure.image
                                 img(src='../static/resto/img/rojak2.jpg', alt='rojak')
@@ -160,33 +209,46 @@ block content
                                 span.price RM4.00/5.00
                                 h3 Rojak
                                 .form-group
-                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='add to cart')
+                                    input.btn.btn-primary.btn-sm(type='submit', name='addtocart', value='Add to Cart')
                         li
                             figure.image
                                 img(src='../static/resto/img/lobak2.jpg', alt='lobak')
                             .text
-                                span.price RM5.00
                                 h3 lobak
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
                         li
                             figure.image
                                 img(src='../static/resto/img/nasilemak.jpg', alt='nasilemak')
                             .text
-                                span.price RM5.00
                                 h3 nasi lemak ayam
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
                         li
                             figure.image
                                 img(src='../static/resto/img/tomatokuehtiaw2.jpg', alt='tomatokuehtiaw')
                             .text
-                                span.price RM5.00
                                 h3 tomato kueh tiaw
                                 .form-group
-                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Not available')
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
+
+                        li
+                            figure.image
+                                img(src='../static/resto/img/steamchickenrice2.jpg', alt='steamedchickenrice')
+                            .text
+                                h3 steamed chicken rice
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
+
+                        li
+                            figure.image
+                                img(src='../static/resto/img/meegorengayam.jpg', alt='meegorengayam')
+                            .text
+                                h3 mee goreng ayam
+                                .form-group
+                                    input.btn.btn-secondary.btn-sm(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/lobak.jpg);', data-stellar-background-ratio='0.85', data-section='reservation')
         .container

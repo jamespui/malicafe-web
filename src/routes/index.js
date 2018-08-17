@@ -35,4 +35,7 @@ app.get('/address', function(req, res) {
     res.render('account/address', {title: 'My Account'});
 });
 
+app.get('/mycart', function(req, res) {
+    res.render('account/mycart', {title: 'My Account'});
+});
 module.exports = app;
