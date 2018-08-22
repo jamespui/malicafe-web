@@ -7,9 +7,7 @@ const apiURL = require('./api');
 app.use('/api', apiURL);
 
 // Serve link example (http://localhost:3018/__)
-app.get('/', function(req, res) {
-    res.render('home', {title: 'Malicafe'});
-});
+
 
 app.get('/resetpassword', function(req, res) {
     res.render('account/resetpassword', {title: 'Reset Password'});
@@ -38,4 +36,11 @@ app.get('/address', function(req, res) {
 app.get('/mycart', function(req, res) {
     res.render('account/mycart', {title: 'My Account'});
 });
+
+
+// Admin
+app.get('/admin/dashboard', function(req, res) {
+    res.render('admin/admin_dashboard', {title: 'Admin Dashboard'});
+});
+
 module.exports = app;

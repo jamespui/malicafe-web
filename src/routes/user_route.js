@@ -1,5 +1,9 @@
 module.exports = function(app, passport) {
     // PROFILE SECTION =========================
+    app.get('/', function(req, res) {
+        res.render('home', {title: 'Malicafe', user: req.user});
+    });
+
     app.get('/myaccount', isLoggedIn, function(req, res) {
         res.render('account/myaccount', {
             user: req.user
