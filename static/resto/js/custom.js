@@ -492,6 +492,7 @@
 	jQuery(window).load(function(){
 		owlCarousel();
 		flexSlider();
-	});
 
+	});
 })();
+
