@@ -330,3 +330,36 @@ block content
                                 textarea#c_message.form-control(name='c_message', cols='30', rows='10')
                         .form-group
                             input#c_submit.btn.btn-primary.btn-lg(type='submit', name='c_submit', value='Send Message')
+
+    section.probootstrap-section(data-section='login')
+        div(ng-app='appLogin' ng-controller='ctrLogin')
+            .container
+                .probootstrap-animate
+                    .text-center.probootstrap-animate
+                        .probootstrap-heading.dark
+                            br
+                            br
+                            br
+                            h1.primary-heading Login
+                            h3.secondary-heading welcome back
+
+                    .col-md-12
+                        hr
+                        form(action='/login', method='post')
+                            .form-group
+                                label Email
+                                input.form-control(type='text', name='email')
+                            .form-group
+                                label Password
+                                input.form-control(type='password', name='password')
+
+                            .row
+                                .col-lg-6.col-12
+                                    a.text-muted(href="/forgotpassword") Forgot your password?
+                            .my-3.text-center
+                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
+                            .text-center
+                                | Don't have an account? &nbsp
+                                a(href='/register') Create One
+
+

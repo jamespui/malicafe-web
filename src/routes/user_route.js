@@ -15,6 +15,10 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+    // At my account CLICK LOGO TO HOME (ADDED BY JAMES PUI) ==============================
+    app.get('/logo', function(req, res) {
+        res.redirect('/');
+    });
 
     // =============================================================================
     // AUTHENTICATE (FIRST LOGIN) ==================================================
