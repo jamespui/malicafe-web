@@ -1,9 +1,64 @@
 extends admin_common/base
 
 block content
-    h2 Dashboard
-    hr
+    div(ng-app='app' ng-controller='ctr' ng-cloak)
+        .row
+            .col-6
+                .card
+                    .card-header
+                        h4 Total User
+                    .card-body.text-center
+                        h1 {{userData.length}}
 
-    h4 New User Register
+
+        .my-5
+            h4 New User Register
+            table.table
+                thead
+                    tr
+                        th(scope='col') #
+                        th(scope='col') User
+                tbody
+                    tr(ng-repeat='data in userData')
+                        th(scope='row') {{$index+1}}
+                        td {{data.local.email}}
+
 
 block scripts
+    script(src='../static/vendor/js/angular.min.js')
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+        function getGETParam(name) {
+            return (location.search.split(name + '=')[1] || '').split('&')[0];
+        }
+
+        app.config(['$httpProvider', function($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function($scope, $http) {
+                let paramID = getGETParam('id');
+                $scope.getFunc = function() {
+                    $http({
+                        method: 'GET',
+                        url: '/api/user/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.userData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+            }]);
+
+

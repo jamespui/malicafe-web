@@ -15,54 +15,32 @@ html
     body
         block header
         #wrapper
+            #sidebar-wrapper
+                ul.sidebar-nav
+                    li.sidebar-brand
+                        a(href='#')
+                            | MALICAFE
+                    li
+                        a(href='/admin/dashboard') Dashboard
             nav.navbar.navbar-expand-lg.navbar-light.bg-light
-                a.navbar-brand(href='#') Navbar
+                a#menu-toggle(href='#menu-toggle')
+                    span.navbar-toggler-icon
                 button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
                         li.nav-item.active
                             a.nav-link(href='#')
-                                | Home
+                                | Dashboard
                                 span.sr-only (current)
-                        li.nav-item
-                            a.nav-link(href='#') Link
-                        li.nav-item.dropdown
-                            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                                | Dropdown
-                            .dropdown-menu(aria-labelledby='navbarDropdown')
-                                a.dropdown-item(href='#') Action
-                                a.dropdown-item(href='#') Another action
-                                .dropdown-divider
-                                a.dropdown-item(href='#') Something else here
-                        li.nav-item
-                            a.nav-link.disabled(href='#') Disabled
+
                     form.form-inline.my-2.my-lg-0
                         input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
                         button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
 
-            #sidebar-wrapper
-                ul.sidebar-nav
-                    li.sidebar-brand
-                        a(href='#')
-                            | Start Bootstrap
-                    li
-                        a(href='#') Dashboard
-                    li
-                        a(href='#') Shortcuts
-                    li
-                        a(href='#') Overview
-                    li
-                        a(href='#') Events
-                    li
-                        a(href='#') About
-                    li
-                        a(href='#') Services
-                    li
-                        a(href='#') Contact
+
             #page-content-wrapper
                 .container-fluid
-                    a#menu-toggle.btn.btn-secondary(href='#menu-toggle') Toggle Menu
                     block content
 
         script(src='../../static/vendor/js/jquery-slim.min.js')
@@ -73,4 +51,5 @@ html
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
+            $("#wrapper").toggleClass("toggled");
         block scripts
