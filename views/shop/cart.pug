@@ -1,0 +1,71 @@
+extends shop_common/base
+block css
+block header
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='/logo')
+            img#logo.d-inline-block.mr-1(alt='Logo' src='/static/resto/img/logocafe_black.png' width='117' height='40')
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+            form.form-inline.my-2.my-lg-0
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='#')
+                            i.fas.fa-shopping-cart &nbsp &nbsp
+                            | Shopping Cart
+                            span.sr-only (current)
+
+block content
+    .container.my-5
+        .row
+            .col-sm-4
+                .card
+                    img.card-img-top(src='../static/resto/img/kolokmee3.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title KOLO MEE
+                        div.price RM 3.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+            .col-sm-4
+                .card
+                    img.card-img-top(src='../static/resto/img/rojak2.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title ROJAK
+                        div.price RM 5.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+            .col-sm-4
+                .card
+                    img.card-img-top(src='../static/resto/img/meesoup2.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title MEE SOUP
+                        div.price RM 3.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+            .col-sm-4
+                .card.my-5
+                    img.card-img-top(src='../static/resto/img/meepok2.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title KOLO MEE
+                        div.price RM 3.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+            .col-sm-4
+                .card.my-5
+                    img.card-img-top(src='../static/resto/img/kuehtiaw2.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title ROJAK
+                        div.price RM 3.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+            .col-sm-4
+                .card.my-5
+                    img.card-img-top(src='../static/resto/img/kuehtiawsoup2.jpg' alt='Card image cap')
+                    .card-shop
+                        h5.card-title MEE SOUP
+                        div.price RM 3.00
+                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
+
+
+
+block scripts
+
+
+
+

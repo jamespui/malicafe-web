@@ -17,10 +17,6 @@ app.get('/forgotpassword', function(req, res) {
     res.render('account/forgotpassword', {title: 'Forgot Password'});
 });
 
-app.get('/shoppingcart', function(req, res) {
-    res.render('common/shoppingcart', {title: 'Shopping Cart'});
-});
-
 /* app.get('/myaccount', function(req, res) {
     res.render('account/myaccount', {title: 'My Account'});
 });*/
@@ -33,8 +29,12 @@ app.get('/address', function(req, res) {
     res.render('account/address', {title: 'My Account'});
 });
 
-app.get('/mycart', function(req, res) {
-    res.render('account/mycart', {title: 'My Account'});
+/*app.get('/mycart', function(req, res) {
+    res.render('shop/mycart', {title: 'My Account'});
+});*/
+
+app.get('/cart', function(req, res) {
+    res.render('shop/cart', {title: 'My Account'});
 });
 
 
