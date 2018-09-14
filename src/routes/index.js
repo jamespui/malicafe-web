@@ -38,9 +38,14 @@ app.get('/cart', function(req, res) {
 });
 
 
-// Admin
+// Admin Area
+// =============================
 app.get('/admin/dashboard', function(req, res) {
     res.render('admin/admin_dashboard', {title: 'Admin Dashboard'});
+});
+
+app.get('/admin/food/menu', function(req, res) {
+    res.render('admin/admin_foodmenu', {title: 'Food Menu'});
 });
 
 module.exports = app;

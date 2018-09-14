@@ -358,8 +358,8 @@ block content
                             br
                             h1.primary-heading Login
                             h3.secondary-heading welcome back
-
-                    .col-md-12
+                .flex-container
+                    .col-lg-6.col-md-12
                         hr
                         form(action='/login', method='post')
                             .form-group
@@ -375,6 +375,7 @@ block content
                             .my-3.text-center
                                 button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
                             .text-center
+                                br
                                 | Don't have an account? &nbsp
                                 a(href='/register') Create One
 
