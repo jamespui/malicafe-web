@@ -1,8 +1,7 @@
 const express = require('express');
 const app = new express.Router();
 
-const userURL = require('./user');
-
-app.use(userURL);
+app.use(require('./v1/user'));
+app.use(require('./v1/food'));
 
 module.exports = app;

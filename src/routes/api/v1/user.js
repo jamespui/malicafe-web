@@ -2,9 +2,9 @@ const express = require('express');
 const app = new express.Router();
 let mongoose = require('mongoose');
 // import User from '../../helpers/db/user';
-// const UserModel = require('../../models/user');
-
-
+// const UserModel = require('../../../models/user');
+//
+//
 // app.post('/register', function(req, res) {
 //     const user = req.body;
 //     let newUser = new UserModel();

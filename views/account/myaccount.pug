@@ -4,26 +4,20 @@ block content
     section.probootstrap-section
         .container
             .probootstrap-animate
-                .text-center.probootstrap-animate
-                    .probootstrap-heading.dark
-                        br
-                        br
-                        br
-                        br
+                .probootstrap-animate
+                    .probootstrap-heading.dark.my-4
                         h2.text MY ACCOUNT
                         hr
                         .col-md-12
-                            .container
-                            form
-                                .form-group
-                                    label Your name :
-                                .form-group
-                                    label Email : &nbsp
-                                    if user
-                                        if user.local.email
-                                            =user.local.email
-                                .form-group
-                                    label Phone number :
+                            .form-group
+                                label Your name :
+                            .form-group
+                                label Email : &nbsp
+                                if user
+                                    if user.local.email
+                                        =user.local.email
+                            .form-group
+                                label Phone number :
 
 
 
