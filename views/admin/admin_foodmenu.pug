@@ -18,14 +18,17 @@ block content
                         th Food Name
                         th Food Description
                         th Food Price
+                        th Action
                 tbody
                     tr(ng-repeat='data in foodData')
                         th(scope='row') {{$index+1}}
                         th
-                            a.rounded.img-fluid(ng-src='{{data.image_file}}')
+                            img.rounded-circle(ng-src='{{data.image_file}}' width='80px' height='80px')
                         td {{data.name}}
                         td {{data.description}}
                         td RM {{data.price| number:2}}
+                        td
+                            button.btn.btn-danger(ng-click='fooddelete(data._id)') Delete
 
         // add new food
         .modal.fade#exampleModal(tabindex='-1', role='dialog')
@@ -91,12 +94,29 @@ block scripts
                     $http({
                         method: 'POST',
                         url: '/api/food/create',
-                        header: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                         data: $scope.newFood
                     }).then(
                         function successCallback(response) {
                             $scope.getFunc();
                             console.log(response.data);
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                }
+
+                $scope.fooddelete = function(foodID) {
+                    $http({
+                        method: 'POST',
+                        url: '/api/food/delete',
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        data:  {foodid: foodID}
+                    }).then(
+                        function successCallback(response) {
+                            $scope.getFunc();
+                            console.log(response);
                         },
 
                         function errorCallback(response) {
