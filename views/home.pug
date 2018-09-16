@@ -348,7 +348,22 @@ block content
                             input#c_submit.btn.btn-primary.btn-lg(type='submit', name='c_submit', value='Send Message')
 
     section.probootstrap-section(data-section='login')
-        div(ng-app='appLogin' ng-controller='ctrLogin')
+        if user
+            if user.local.email
+            .container
+                .probootstrap-animate
+                    .text-center.probootstrap-animate
+                        .probootstrap-heading.dark
+                            br
+                            br
+                            h1.primary-heading Hello
+                            h3.secondary-heading welcome back
+                .flex-container
+                    .col-lg-6.col-md-12
+                        .text-center
+                            a.btn.btn-primary.btn-lg.text-uppercase.w-50(href='/myaccount') Go to My Account
+
+        else
             .container
                 .probootstrap-animate
                     .text-center.probootstrap-animate
@@ -356,7 +371,7 @@ block content
                             br
                             br
                             h1.primary-heading Login
-                            h3.secondary-heading welcome back
+                            h3.secondary-heading welcome
                 .flex-container
                     .col-lg-6.col-md-12
                         hr
@@ -377,5 +392,4 @@ block content
                                 br
                                 | Don't have an account? &nbsp
                                 a(href='/register') Create One
-
 

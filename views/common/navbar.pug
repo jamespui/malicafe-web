@@ -8,40 +8,26 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                 span.icon-bar
             a.navbar-brand(href='/', title='#{title}') #{title}
         #navbar-collapse.navbar-collapse.collapse
-            if user
-                if user.local.email
-                ul.nav.navbar-nav.navbar-right
-                    li.active
-                        a(href='#', data-nav-section='welcome') home
+            ul.nav.navbar-nav.navbar-right
+                li.active
+                    a(href='#', data-nav-section='welcome') home
+                li
+                    a(href='#', data-nav-section='specialties')  specialties
+                li
+                    a(href='#', data-nav-section='menu') menu
+                li
+                    a(href='#', data-nav-section='reservation') location
+                li
+                    a(href='#', data-nav-section='events') how to order
+                li
+                    a(href='#', data-nav-section='contact') contact
+                if user
+                    if user.local.email
                     li
-                        a(href='#', data-nav-section='specialties')  specialties
+                        a(href='#', data-nav-section='login') My Account
+                else
                     li
-                        a(href='#', data-nav-section='menu') menu
-                    li
-                        a(href='#', data-nav-section='reservation') location
-                    li
-                        a(href='#', data-nav-section='events') how to order
-                    li
-                        a(href='#', data-nav-section='contact') contact
-                    li
-                        a(href='/profile')
-                            =user.local.email
-                    li
-                        a(href='/logout') Logout
-            else
-                ul.nav.navbar-nav.navbar-right
-                    li.active
-                        a(href='#', data-nav-section='welcome') home
-                    li
-                        a(href='#', data-nav-section='specialties')  specialties
-                    li
-                        a(href='#', data-nav-section='menu') menu
-                    li
-                        a(href='#', data-nav-section='reservation') location
-                    li
-                        a(href='#', data-nav-section='events') how to order
-                    li
-                        a(href='#', data-nav-section='contact') contact
-                    li
-                        a(href='#', data-nav-section='login') login
+                        a(href='#', data-nav-section='login') Login
+
+
 
