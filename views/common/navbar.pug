@@ -11,6 +11,18 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
             if user
                 if user.local.email
                 ul.nav.navbar-nav.navbar-right
+                    li.active
+                        a(href='#', data-nav-section='welcome') home
+                    li
+                        a(href='#', data-nav-section='specialties')  specialties
+                    li
+                        a(href='#', data-nav-section='menu') menu
+                    li
+                        a(href='#', data-nav-section='reservation') location
+                    li
+                        a(href='#', data-nav-section='events') how to order
+                    li
+                        a(href='#', data-nav-section='contact') contact
                     li
                         a(href='/profile')
                             =user.local.email
@@ -32,5 +44,4 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                         a(href='#', data-nav-section='contact') contact
                     li
                         a(href='#', data-nav-section='login') login
-                    li
-                        a(href='#', data-nav-section='mycart') mycart
+
