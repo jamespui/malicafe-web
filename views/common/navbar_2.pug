@@ -3,18 +3,18 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         img#logo.d-inline-block.mr-1(alt='Logo' src='/static/resto/img/logocafe_black.png' width='117' height='40')
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-            form.form-inline.my-2.my-lg-0
-                ul.navbar-nav.mr-auto
-                    li.nav-item
-                        if user.local.email
-                            ul.nav.navbar-nav.navbar-right
-                                li
-                                    a.nav-link(href='/myaccount')
-                                        =user.local.email
-                                li
-                                    a.nav-link(href='/logout') Logout
+    #navbarSupportedContent.collapse.navbar-collapse.justify-content-end
+        form.form-inline.my-2.my-lg-0
+            ul.navbar-nav.mr-auto
+                li.nav-item
+                    if user.local.email
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a.nav-link(href='/myaccount')
+                                    =user.local.email
+                            li
+                                a.btn.btn-danger.btn-lg.text-uppercase(href='/logout') Logout
+
 
 
 
