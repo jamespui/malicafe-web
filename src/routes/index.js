@@ -29,9 +29,9 @@ app.get('/address', function(req, res) {
     res.render('account/address', {title: 'My Account'});
 });
 
-/*app.get('/mycart', function(req, res) {
-    res.render('shop/mycart', {title: 'My Account'});
-});*/
+app.get('/checkout', function(req, res) {
+    res.render('shop/checkout', {title: 'My Account'});
+});
 
 app.get('/cart', function(req, res) {
     res.render('shop/cart', {title: 'My Account'});
