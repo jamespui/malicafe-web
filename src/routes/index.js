@@ -29,12 +29,16 @@ app.get('/address', function(req, res) {
     res.render('account/address', {title: 'My Account'});
 });
 
-app.get('/checkout', function(req, res) {
-    res.render('shop/checkout', {title: 'My Account'});
+app.get('/billaddress', function(req, res) {
+    res.render('shop/billaddress', {title: 'My Account'});
 });
 
 app.get('/cart', function(req, res) {
     res.render('shop/cart', {title: 'My Account'});
+});
+
+app.get('/checkout', function(req, res) {
+    res.render('shop/checkout', {title: 'My Account'});
 });
 
 
