@@ -19,137 +19,62 @@ block header
                         a.btn.btn-outline-danger.btn-md.text-uppercase(href='/logo') Go to Home
 
 block content
-    .container.my-5
+    .container.my-5(ng-app='app' ng-controller='ctr' ng-cloak)
         .row
-            .col-sm-4
+            .col-sm-4(ng-repeat='data in foodData')
                 .card
-                    img.card-img-top(src='../static/resto/img/kolokmee3.jpg' alt='Card image cap')
+                    img.card-img-top.img-fluid(ng-src='{{data.image_file}}' alt='{{data.name}}')
                     .card-shop
                         .card-body
-                        h5.card-title KOLO MEE
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 3.00
+                            h5.card-title {{data.name}}
+                            p.small {{data.description}}
+                            .row
+                                .col-4
+                                    p.price RM {{data.price | number:2}}
+                                .col-8
+                                    .row
+                                    input.col-5(type='number' step="1" value="1" min="1" max="5")
+                                    a.btn.btn-outline-dark.btn-sm.mx-2(href="#") Add to cart
 
-            .col-sm-4
-                .card
-                    img.card-img-top(src='../static/resto/img/rojak2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title ROJAK
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card
-                    img.card-img-top(src='../static/resto/img/meesoup2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title MEE SOUP
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 3.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/meegorengayam2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title MEE GORENG AYAM
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/kuehtiaw2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title KOLO KUEH TIAW
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 3.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/kuehtiawsoup2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title MEE SOUP
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 3.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/meepok2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title KOLO MEE POK
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 3.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/nasiayamlemon2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title LEMON CHICKEN RICE
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 6.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/laksa2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title LAKSA
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/meejawa2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title MEE JAWA
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/lobak2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title LOBAK
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 4.00/1 Roll
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/steamchickenrice2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title STEAMED CHICKEN RICE
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/tomatokuehtiaw2.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title TOMATO KUEH TIAW
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 5.00
-
-            .col-sm-4
-                .card.my-5
-                    img.card-img-top(src='../static/resto/img/nasilemak.jpg' alt='Card image cap')
-                    .card-shop
-                        .card-body
-                        h5.card-title NASI LEMAK AYAM
-                        a.btn.btn-outline-dark.float-right(href="#") Add to cart
-                        div.price RM 6.00
 
 
 
 block scripts
+    script(src='../static/vendor/js/angular.min.js')
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+        function getGETParam(name) {
+            return (location.search.split(name + '=')[1] || '').split('&')[0];
+        }
+
+        app.config(['$httpProvider', function ($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function ($scope, $http) {
+                $scope.getFunc = function () {
+                    $http({
+                        method: 'GET',
+                        url: '/api/food/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.foodData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+            }]);
+
 
 
 
