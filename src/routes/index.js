@@ -26,20 +26,24 @@ app.get('/editaddress', function(req, res) {
 });
 
 app.get('/address', function(req, res) {
-    res.render('account/address', {title: 'My Account'});
+    res.render('account/address', {title: 'Address'});
 });
 
 app.get('/billaddress', function(req, res) {
-    res.render('shop/billaddress', {title: 'My Account'});
+    res.render('shop/billaddress', {title: 'Summary'});
 });
 
 app.get('/cart', function(req, res) {
-    res.render('shop/cart', {title: 'My Account'});
+    res.render('shop/cart', {title: 'Menu'});
 });
 
 app.get('/checkout', function(req, res) {
-    res.render('shop/checkout', {title: 'My Account'});
+    res.render('shop/checkout', {title: 'CheckOut'});
 });
+
+/* app.get('/mycart', function(req, res) {
+    res.render('shop/mycart', {title: 'MyCart'});
+});*/
 
 
 // Admin Area
