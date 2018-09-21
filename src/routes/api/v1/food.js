@@ -1,8 +1,7 @@
-/* eslint-disable new-cap */
 const express = require('express');
 const app = new express.Router();
 const mongoose = require('mongoose');
-let foodModel = require('../../../models/food');
+const foodModel = require('../../../models/food');
 
 // create food
 app.post('/food/create', function(req, res) {
@@ -36,15 +35,12 @@ app.get('/food/read/all', function(req, res) {
 // delete food
 app.post('/food/delete', function(req, res) {
     let fooddata = mongoose.model('Food');
-    let foodobj = {};
-    foodobj.foodid = req.body.foodid;
-    console.log(req.body.foodid);
-    // fooddata.findOne()
-    //     .exec(function(err, obj) {
-    //         console.log(obj);
-    //         obj.meta.is_delete = true;
-    //         obj.save();
-    //     });
+    fooddata.findOne({_id: req.body.foodid})
+        .exec(function(err, obj) {
+            console.log(obj);
+            obj.meta.is_delete = true;
+            obj.save();
+        });
     res.json({
         success: true,
         msg: 'Food is Delete'

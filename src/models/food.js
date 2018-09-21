@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
-const ObjectId = mongoose.Schema.Types.ObjectId;
+// const ObjectId = mongoose.Schema.Types.ObjectId;
 const FoodSchema = new Schema({
     name: String,
     description: String,
@@ -13,6 +13,6 @@ const FoodSchema = new Schema({
     }
 }, {timestamps: true});
 
-FoodSchema.index({name: 'text', description: 'text'});
+// FoodSchema.index({name: 'text', description: 'text'});
 
 module.exports = mongoose.model('Food', FoodSchema);
