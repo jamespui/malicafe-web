@@ -23,6 +23,8 @@ block content
                                 h1.primary-heading Enjoy
                                 h3.secondary-heading With Us
 
+    // END ROW================================================================================================================================
+
     section.probootstrap-section.probootstrap-bg-white
         .container
             .row
@@ -39,7 +41,7 @@ block content
                     p
                         img.img-responsive(src='../static/resto/img/malicafe3.jpg', alt='malicafe')
 
-            // END ROW
+    // END ROW=====================================================================================================================================================================
 
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/lobak.jpg);', data-stellar-background-ratio='1.0', data-section='location')
         .container
@@ -58,7 +60,8 @@ block content
                         figure
                             iframe(height='500px', width='100%', src='/address', style='border-color: #FFA33F;', name='location malicafe')
 
-    //END ROW
+    //END ROW===================================================================================================================================================================================
+
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/rojak.jpg);', data-stellar-background-ratio='1.0', data-section='specialties')
         .container
             .row
@@ -67,8 +70,6 @@ block content
                         hr
                         h2.primary-heading Menu
                         h3.secondary-heading Our Specialties
-
-    // probootstrap-bg-white
 
     section.probootstrap-section
         .container
@@ -124,7 +125,8 @@ block content
 
 
 
-        //END ROW
+        //END ROW===========================================================================================================================================================================================================================
+
         section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/tomatokuehtiaw.jpg);', data-stellar-background-ratio='1.0', data-section='menu')
             .container
                 .row
@@ -295,7 +297,7 @@ block content
                                         input.btn.btn-secondary.btn-md(type='submit', name='addtocart', value='Only Available At MaliCafe')
 
 
-        //END ROW
+        //END ROW ================================================================================================================
 
 
     section.probootstrap-section-bg.overlay(style='background-image: url(../static/resto/img/roticanai.jpg);', data-stellar-background-ratio='1.0', data-section='events')
@@ -314,23 +316,8 @@ block content
                     .probootstrap-block-image
                     figure
                         img.img-responsive(src='../static/resto/img/cod.png', alt='how to order')
-                    .col-md-4.col-sm-4.probootstrap-animate
-                        .text
 
-                            h3
-                                a ORDER
-                            p
-                                | Select your meals from the menu list and confirm your order then proceed with the payment via credit card or debit card
-
-                    .col-md-4.col-sm-4.probootstrap-animate
-                        .text
-
-                            h3
-                                a DELIVERY
-                            p
-                                | Delivery of your meals are depends on your location and the amount of foods you’ve ordered. For large corporate orders, we may require extended time.
-
-        //END ROW
+        //END ROW ===============================================================================================================
 
 
     section.probootstrap-section.probootstrap-bg-white(data-section='contact')
@@ -359,7 +346,9 @@ block content
                                 textarea#c_message.form-control(name='c_message', cols='30', rows='10')
                         .form-group
                             input#c_submit.btn.btn-primary.btn-lg(type='submit', name='c_submit', value='Send Message')
-    //END ROW
+
+    //END ROW====================================================================================================================
+
     section.probootstrap-section(data-section='login')
         if user
             if user.local.email

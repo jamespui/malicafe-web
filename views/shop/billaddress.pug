@@ -17,25 +17,35 @@ block header
 
 block content
     .container
-        .py-5.text-center
+        .py-5.text-center.text-xl
         .row
-            .col-md-4.order-md-2.mb-4
+            .col-md-5.order-md-2.mb-4
                 h4.d-flex.justify-content-between.align-items-center.mb-3
                     span.text-muted SUMMARY
                     span.badge.badge-secondary.badge-pill 3
                 ul.list-group.mb-3
-                    li.list-group-item.d-flex.justify-content-between.lh-condensed
+                    li.list-group-item
                         div
-                            h6.my-0 KOLO MEE
-                        span.text-muted RM 6.00
-                    li.list-group-item.d-flex.justify-content-between.lh-condensed
+                            | KOLO MEE
+                            span.badge-warning.badge-secondary.badge-pill.mx-2 2
                         div
-                            h6.my-0 ROJAK
-                        span.text-muted RM 5.00
-                    li.list-group-item.d-flex.justify-content-between.lh-condensed
+                            span.text-muted RM 6.00
+
+                        button.btn.btn-danger.btn-sm.float-right(ng-click='') Remove
+                    li.list-group-item
                         div
-                            h6.my-0 STEAMED CHICKEN RICE
-                        span.text-muted RM 5.00
+                            | ROJAK
+                            span.badge-warning.badge-secondary.badge-pill.mx-2 1
+                        div
+                            span.text-muted RM 5.00
+                        button.btn.btn-danger.btn-sm.float-right(ng-click='') Remove
+                    li.list-group-item
+                        div
+                            | STEAMED CHICKEN RICE
+                            span.badge-warning.badge-secondary.badge-pill.mx-2 1
+                        div
+                            span.text-muted RM 5.00
+                        button.btn.btn-danger.btn-sm.float-right(ng-click='') Remove
                     //li.list-group-item.d-flex.justify-content-between.lh-condensed
                         div
                             span.text-muted Delivery fees
@@ -43,7 +53,7 @@ block content
                     li.list-group-item.d-flex.justify-content-between
                         h5.text-success SubTotal
                         strong.text-success RM 16.00
-            .col-md-8.order-md-2
+            .col-md-7.order-md-1
                 h4.mb-3 Billing address
                 form.needs-validation(novalidate='')
                     .row
@@ -57,7 +67,8 @@ block content
                     .custom-control.custom-checkbox
                         input#save-info.custom-control-input(type='checkbox')
 
-                    button.btn.btn-primary.btn-lg.btn-block(type='submit') Confirm Delivery Address
+                    button.btn.btn-primary.btn-lg.btn-block(href='/checkout', type='submit') Continue to Checkout
+
         footer.my-5.pt-5.text-muted.text-center.text-small
             p.mb-1 &copy; 2015-2018 MALICAFE
 
