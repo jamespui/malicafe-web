@@ -12,7 +12,10 @@ module.exports = function(app, passport) {
 
     app.get('/cart', function(req, res) {
         res.render('shop/cart', {title: 'Menu', user: req.user});
-        console.log(req.user);
+    });
+
+    app.get('/billaddress', function(req, res) {
+        res.render('shop/billaddress', {title: 'Summary', user: req.user});
     });
 
     // LOGOUT ==============================

@@ -6,7 +6,7 @@ const cartModel = require('../../../models/cart');
 // add to cart
 app.post('/cart/add', function(req, res) {
     let data = {
-        userID: req.body.userid,
+        userID: req.user._id,
         cartItem: {
             food: req.body.foodid,
             quantity: req.body.quantity
@@ -24,23 +24,23 @@ app.post('/cart/add', function(req, res) {
 // for user
 app.post('/cart/read', function(req, res) {
     let cartData = mongoose.model('Cart');
-    let foodData = mongoose.model('Food');
-    cartData.find({'meta.is_delete': false, 'userID': req.body.userid},
-        function(err, response) {
-            if (err) return console.error(err);
-            foodData.find().populate({
-                path: 'cartItem.food',
-                select: {
-                    '_id': 1,
-                    'name': 1,
-                    'price': 1,
-                    'image_file': 1
-                }
+    cartData
+        .find({'meta.is_delete': false, 'userID': req.user._id},
+            function(err, response) {
+                if (err) return console.error(err);
             })
-                .exec(function(err, obj) {
-                    console.log(obj);
-                    res.json(response);
-                });
+        .populate({
+            path: 'cartItem.food',
+            select: {
+                '_id': 1,
+                'name': 1,
+                'price': 1,
+                'image_file': 1
+            }
+        })
+        .exec(function(err, obj) {
+            console.log(obj);
+            res.json(obj);
         });
 });
 

@@ -23,9 +23,6 @@ block content
         .row
             .col-lg-4.col-6.my-2(ng-repeat='data in foodData')
                 .card
-                    p #{user._id}
-                    input(type='text' ng-model='cartFood.userid' value='#{user._id}')
-                    pre {{cartFood|json}}
                     img.card-img-top.img-fluid(ng-src='{{data.image_file}}' alt='{{data.name}}')
                     .card-shop
                         .card-body
@@ -34,9 +31,9 @@ block content
                             p.price RM {{data.price | number:2}}
                         .card-footer
                             label Quantity
-                            input.col-3.mx-2(type='number' step="1" value="1" min="1" ng-model='cartFood.quantity')
+                            input.col-3.mx-2(type='number' step="1" value="1" min="1" ng-model='data.quantity')
                             .float-lg-right
-                                a.btn.btn-outline-dark.btn-sm.mx-2(href="#") Add to cart
+                                a.btn.btn-outline-dark.btn-sm.mx-2(href="#" ng-click='addtocart(data)') Add to cart
 
 
 
@@ -76,17 +73,17 @@ block scripts
                 };
                 $scope.getFunc();
 
-                $scope.cartFood = {
-                    userid: '',
-                    foodid: '',
-                    quantity: 1
-                }
-                $scope.addtocart = function() {
+                $scope.addtocart = function(fooddata) {
+                    $scope.cardItem = {
+                        foodid: fooddata._id,
+                        quantity: fooddata.quantity
+                    }
+                    console.log($scope.cardItem)
                     $http({
                         method: 'POST',
                         url: '/api/cart/add',
                         // header: {'Content-Type': 'application/x-www-form-urlencoded'},
-                        data: {}
+                        data: $scope.cardItem
                         }).then(
                             function successCallback(response) {
                                 console.log(response.data);
