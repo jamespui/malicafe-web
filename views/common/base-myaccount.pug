@@ -9,6 +9,7 @@ html(lang='en')
         meta(name='author' content='')
         title #{title}
         link(rel='stylesheet', href='../static/vendor/css/bootstrap.min.css')
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css' integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU' crossorigin='anonymous')
         block css
     body
         block header
@@ -17,4 +18,6 @@ html(lang='en')
         script(src='../static/vendor/js/jquery-slim.min.js')
         script(src='../static/vendor/js/popper.min.js')
         script(src='../static/vendor/js/bootstrap.min.js')
+        block footer
+            include ../common/footer_2.pug
         block scripts
