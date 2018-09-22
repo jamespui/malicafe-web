@@ -8,7 +8,7 @@ const CartSchema = new Schema({
         food: {type: ObjectId, ref: 'Food'},
         quantity: Number
     },
-    address: String,
+    // address: String,
     meta: {
         is_delete: {type: Boolean, default: false},
         is_hidden: {type: Boolean, default: false}

@@ -5,9 +5,58 @@ const cartModel = require('../../../models/cart');
 
 // add to cart
 app.post('/cart/add', function(req, res) {
+    let data = {
+        userID: req.body.userid,
+        cartItem: {
+            food: req.body.foodid,
+            quantity: req.body.quantity
+        }
+    };
+    let cartObj = new cartModel(data);
+    cartObj.save();
     res.json({
         success: true,
         msg: 'Add Success',
-        data: 'Hello'
+        data: data
     });
 });
+
+// for user
+app.post('/cart/read', function(req, res) {
+    let cartData = mongoose.model('Cart');
+    let foodData = mongoose.model('Food');
+    cartData.find({'meta.is_delete': false, 'userID': req.body.userid},
+        function(err, response) {
+            if (err) return console.error(err);
+            foodData.find().populate({
+                path: 'cartItem.food',
+                select: {
+                    '_id': 1,
+                    'name': 1,
+                    'price': 1,
+                    'image_file': 1
+                }
+            })
+                .exec(function(err, obj) {
+                    console.log(obj);
+                    res.json(response);
+                });
+        });
+});
+
+// delete food
+app.post('/cart/delete', function(req, res) {
+    let cartData = mongoose.model('Cart');
+    cartData.findOne({_id: req.body.cartid})
+        .exec(function(err, obj) {
+            console.log(obj);
+            obj.meta.is_delete = true;
+            obj.save();
+        });
+    res.json({
+        success: true,
+        msg: 'Cart Remove'
+    });
+});
+
+module.exports = app;
