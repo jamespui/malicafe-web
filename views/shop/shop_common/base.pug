@@ -20,6 +20,8 @@ html(lang='en')
         script(src='../static/vendor/js/popper.min.js')
         script(src='../static/vendor/js/bootstrap.min.js')
         script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')
+        block footer
+            include ../shop_common/footer_2.pug
         block scripts
             script.
                 toastr.info('Are you the 6 fingered man?')
