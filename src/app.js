@@ -56,7 +56,7 @@ require('./routes/user_route.js')(app, passport);
 
 app.use(favicon(path.join(__dirname, '..', 'static', 'favicon', 'favicon.png')));
 
-const portNumber = 3018;
+const portNumber = 3223;
 
 app.listen(portNumber, function() {
     console.log('listening on port ' + portNumber + '!');
