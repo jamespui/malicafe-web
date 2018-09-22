@@ -9,6 +9,12 @@ block content
                         h4 Total User
                     .card-body.text-center
                         h1 {{userData.length}}
+            .col-6
+                .card
+                    .card-header
+                        h4 Total Food
+                    .card-body.text-center
+                        h1 {{foodData.length}}
 
 
         .my-5
@@ -42,7 +48,7 @@ block scripts
         app.controller(strCtrName, ['$scope', '$http',
             function($scope, $http) {
                 let paramID = getGETParam('id');
-                $scope.getFunc = function() {
+                $scope.getUser = function() {
                     $http({
                         method: 'GET',
                         url: '/api/user/read/all',
@@ -57,7 +63,24 @@ block scripts
                         }
                     );
                 };
-                $scope.getFunc();
+                $scope.getUser();
+
+                $scope.getFood = function () {
+                    $http({
+                        method: 'GET',
+                        url: '/api/food/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.foodData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFood();
             }]);
 
 

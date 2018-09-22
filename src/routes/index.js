@@ -33,9 +33,6 @@ app.get('/billaddress', function(req, res) {
     res.render('shop/billaddress', {title: 'Summary'});
 });
 
-app.get('/cart', function(req, res) {
-    res.render('shop/cart', {title: 'Menu'});
-});
 
 app.get('/checkout', function(req, res) {
     res.render('shop/checkout', {title: 'CheckOut'});

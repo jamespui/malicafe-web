@@ -39,7 +39,7 @@ block content
                         button.close(type='button', data-dismiss='modal', aria-label='Close')
                             span(aria-hidden='true') ×
                     .modal-body
-                        pre {{newFood|json}}
+                        //- pre {{newFood|json}}
                         .form-group
                             label Food Name
                             input.form-control(type='text' ng-model='newFood.name')
@@ -99,6 +99,7 @@ block scripts
                         data: $scope.newFood
                     }).then(
                         function successCallback(response) {
+                            $scope.newFood = {};
                             $scope.getFunc();
                             console.log(response.data);
                         },

@@ -22,7 +22,6 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                 li
                     a(href='#', data-nav-section='contact') contact
                 if user
-                    if user.local.email
                     li
                         a(href='#', data-nav-section='login') My Account
                 else
@@ -30,4 +29,4 @@ nav.navbar.navbar-default.navbar-fixed-top.probootstrap-navbar
                         a(href='#', data-nav-section='login') Login
 
 
-
+req.user

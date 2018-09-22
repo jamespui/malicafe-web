@@ -10,6 +10,11 @@ module.exports = function(app, passport) {
         });
     });
 
+    app.get('/cart', function(req, res) {
+        res.render('shop/cart', {title: 'Menu', user: req.user});
+        console.log(req.user);
+    });
+
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();

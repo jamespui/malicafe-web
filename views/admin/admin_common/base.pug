@@ -10,6 +10,7 @@ html
         title #{title}
         link(rel='stylesheet', href='../../static/vendor/css/bootstrap.min.css')
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')
         link(rel="stylesheet" href="../../static/vendor/css/simple-sidebar.css")
         block css
     body
@@ -53,10 +54,12 @@ html
         script(src='../../static/vendor/js/popper.min.js')
         script(src='../../static/vendor/js/bootstrap.min.js')
         script(src='../../static/vendor/js/angular.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')
         script.
             $("#menu-toggle").click(function(e) {
                 e.preventDefault();
                 $("#wrapper").toggleClass("toggled");
             });
             $("#wrapper").toggleClass("toggled");
+            toastr.info('Are you the 6 fingered man?')
         block scripts
