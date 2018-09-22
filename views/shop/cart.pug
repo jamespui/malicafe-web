@@ -21,7 +21,7 @@ block header
 block content
     .container.my-5(ng-app='app' ng-controller='ctr' ng-cloak)
         .row
-            .col-sm-4(ng-repeat='data in foodData')
+            .col-lg-4.col-6(ng-repeat='data in foodData')
                 .card
                     img.card-img-top.img-fluid(ng-src='{{data.image_file}}' alt='{{data.name}}')
                     .card-shop
