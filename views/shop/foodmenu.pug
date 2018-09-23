@@ -10,18 +10,18 @@ block header
             ul.navbar-nav.mr-auto
             form.form-inline.my-2.my-lg-0
                 ul.navbar-nav.mr-auto
-                    li.nav-item.mx-3.my-2
+                    li.nav-item.mx-3.my-3
                         a.btn.btn-warning.btn-md.text-uppercase(href='/billaddress')
                             i.fas.fa-shopping-cart &nbsp &nbsp
                             | Shopping Cart
                             span.sr-only (current)
-                    li
+                    li.nav-item.mx-3.my-2
                         a.btn.btn-outline-danger.btn-md.text-uppercase.my-2(href='/logo') Go to Home
 
 block content
     .container.my-5(ng-app='app' ng-controller='ctr' ng-cloak)
         .row
-            .col-lg-4.col-6.my-2(ng-repeat='data in foodData')
+            .col-lg-4.col-sm-4.col-md-6.my-2(ng-repeat='data in foodData')
                 .card
                     img.card-img-top.img-fluid(ng-src='{{data.image_file}}' alt='{{data.name}}')
                     .card-shop
@@ -32,8 +32,8 @@ block content
                         .card-footer
                             label Quantity
                             input.col-3.mx-2(type='number' step="1" value="1" min="1" ng-model='data.quantity')
-                            .float-lg-right
-                                a.btn.btn-outline-dark.btn-sm.mx-2(href="#" ng-click='addtocart(data)') Add to cart
+                            .float-right
+                                a.btn.btn-outline-dark.btn-sm(href="#" ng-click='addtocart(data)') Add to cart
 
 
 
