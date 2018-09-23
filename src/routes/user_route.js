@@ -10,8 +10,8 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/cart', function(req, res) {
-        res.render('shop/cart', {title: 'Menu', user: req.user});
+    app.get('/foodmenu', function(req, res) {
+        res.render('shop/foodmenu', {title: 'Menu', user: req.user});
     });
 
     app.get('/billaddress', function(req, res) {
