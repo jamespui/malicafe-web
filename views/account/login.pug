@@ -10,9 +10,8 @@ block content
                             br
                             br
                             br
-                            h1.primary-heading Login
-                            h3.secondary-heading welcome back
-
+                            h1.primary-heading Welcome Back
+                            h3.secondary-heading login
                     .col-md-12
                         hr
                         form(action='/login', method='post')
@@ -26,11 +25,16 @@ block content
                             .row
                                 .col-lg-6.col-12
                                     a.text-muted(href="/forgotpassword") Forgot your password?
+                            br
                             .my-3.text-center
-                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
+                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit', title='Login') Login
+                                a.btn.btn-danger.btn-lg(href='/logo', title='Main Page') Main Page
                             .text-center
                                 br
                                 | Don't have an account? &nbsp
-                                a(href='/register') Create One
+                                a(href='/register', title='Register') Create One
+
+
+
 
 block scripts

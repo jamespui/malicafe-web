@@ -335,11 +335,11 @@ block content
                         .form-group
                             label(for='c_email') Your Email
                             .form-field
-                                input#c_email.form-control(type='text')
+                                input#c_email.form-control(type='text', required='')
                         .form-group
                             label(for='c_message') Your Message
                             .form-field
-                                textarea#c_message.form-control(name='c_message', cols='30', rows='10')
+                                textarea#c_message.form-control(name='c_message', cols='30', rows='10',required='')
                         .form-group
                             input#c_submit.btn.btn-primary.btn-lg(type='submit', name='c_submit', value='Send Message')
 
@@ -368,8 +368,8 @@ block content
                         .probootstrap-heading.dark
                             br
                             br
-                            h1.primary-heading Login
-                            h3.secondary-heading welcome
+                            h1.primary-heading Welcome
+                            h3.secondary-heading login
                 .flex-container
                     .col-lg-6.col-md-12
                         hr
@@ -385,9 +385,9 @@ block content
                                 .col-lg-6.col-12
                                     a.text-muted(href="/forgotpassword") Forgot your password?
                             .my-3.text-center
-                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit') Login
+                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit', title='Login') Login
                             .text-center
                                 br
                                 | Don't have an account? &nbsp
-                                a(href='/register') Create One
+                                a(href='/register', title='Register') Create One
 
