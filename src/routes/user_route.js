@@ -14,8 +14,8 @@ module.exports = function(app, passport) {
         res.render('shop/foodmenu', {title: 'Menu', user: req.user});
     });
 
-    app.get('/billaddress', function(req, res) {
-        res.render('shop/billaddress', {title: 'Summary', user: req.user});
+    app.get('/checkout', function(req, res) {
+        res.render('shop/checkout', {title: 'Summary', user: req.user});
     });
 
     // LOGOUT ==============================

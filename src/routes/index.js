@@ -29,6 +29,10 @@ app.get('/address', function(req, res) {
     res.render('account/address', {title: 'Address'});
 });
 
+app.get('/thankyou', function(req, res) {
+    res.render('shop/thankyou', {title: 'Address'});
+});
+
 
 app.get('/checkout', function(req, res) {
     res.render('shop/checkout', {title: 'CheckOut'});
