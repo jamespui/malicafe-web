@@ -45,23 +45,33 @@ block content
                             b Total
                         strong RM 6.00
             .col-md-7.order-md-1
-                h2.mb-3 CHECKOUT
-                form.needs-validation(novalidate='')
-                    .row
-                    .mb-3.my-2
-                        label(for='address') Billing Address
-                        input#address.form-control(type='text' placeholder='1234 Main St' required='')
-                        .invalid-feedback
-                            | Please enter your shipping address.
-                    hr
-                    a.btn.btn-primary.btn-lg.btn-block(href='/thankyou') Confirm
+                h4.mb-3 Shipping Address
+                .form-group
+                    label Name
+                    input.form-control(type='text' ng-model='orderData.name')
+                .form-group
+                    label Street Address
+                    input.form-control(type='text' ng-model='orderData.address.street')
+                .form-group
+                    label Town
+                    input.form-control(type='text' ng-model='orderData.address.town')
+                .form-group
+                    label State
+                    input.form-control(type='text' ng-model='orderData.address.state')
+                .form-group
+                    label Postcode
+                    input.form-control(type='text' ng-model='orderData.address.postcode')
+                .form-group
+                    label Phone
+                    input.form-control(type='text' ng-model='orderData.phone')
 
+                    hr.mb-4
+                    .custom-control.custom-checkbox
+                        input#save-info.custom-control-input(type='checkbox')
 
+                    button.btn.btn-primary.btn-lg.btn-block(href='/checkout', type='submit') Continue to Checkout
 
-
-
-
-
+                    
 block scripts
     script(src='../static/vendor/js/angular.min.js')
     script.
@@ -141,8 +151,3 @@ block scripts
                 });
             }, false);
         })();
-
-
-
-
-
