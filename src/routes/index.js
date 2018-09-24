@@ -49,4 +49,9 @@ app.get('/admin/food/menu', function(req, res) {
     res.render('admin/admin_foodmenu', {title: 'Food Menu'});
 });
 
+
+app.get('/admin/settings', function(req, res) {
+    res.render('admin/admin_settings', {title: 'Admin Settings'});
+});
+
 module.exports = app;

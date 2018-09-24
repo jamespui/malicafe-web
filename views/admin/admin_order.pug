@@ -1,0 +1,111 @@
+extends admin_common/base
+
+block content
+    div(ng-app='app' ng-controller='ctr' ng-cloak)
+        .my-5
+            .row
+                .col-8
+                    h4 Order
+                //.col-4
+                //    .text-right
+                //        button.btn.btn-default(data-toggle="modal" data-target="#exampleModal") Add New
+            hr
+            table.table
+                thead
+                    tr
+                        th(scope='col') #
+                        th Food Image
+                        th Food Name
+                        th Food Description
+                        th Food Price
+                        th Action
+                tbody
+                    tr(ng-repeat='data in orderData')
+                        th(scope='row') {{$index+1}}
+                        th
+                            img.rounded-circle(ng-src='{{data.image_file}}' width='80px' height='80px')
+                        td {{data.name}}
+                        td {{data.description}}
+                        td RM {{data.price| number:2}}
+                        td
+                            button.btn.btn-danger(ng-click='fooddelete(data._id)') Delete
+
+        // add new food
+        .modal.fade#exampleModal(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5.modal-title Add New Food
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                    .modal-body
+                        //- pre {{newFood|json}}
+                        .form-group
+                            label Food Name
+                            input.form-control(type='text' ng-model='newFood.name')
+                        .form-group
+                            label Food Description
+                            input.form-control(type='text' ng-model='newFood.description')
+                        .form-group
+                            label Food Image Link
+                            input.form-control(type='text' ng-model='newFood.image_file')
+                        .form-group
+                            label Food Price (RM)
+                            input.form-control(type='number' ng-model='newFood.price')
+                    .modal-footer
+                        button.btn.btn-primary(type='button' data-dismiss='modal' ng-click='postFood()') Create
+
+block scripts
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+        function getGETParam(name) {
+            return (location.search.split(name + '=')[1] || '').split('&')[0];
+        }
+
+        app.config(['$httpProvider', function($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function($scope, $http) {
+                let paramID = getGETParam('id');
+                $scope.getFunc = function() {
+                    $http({
+                        method: 'GET',
+                        url: '/api/order/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+
+                $scope.orderdelete = function(foodID) {
+                    $http({
+                        method: 'POST',
+                        url: '/api/food/delete',
+                        //headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                        data:  {foodid: foodID}
+                    }).then(
+                        function successCallback(response) {
+                            $scope.getFunc();
+                            console.log(response);
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                }
+            }]);
+
+
