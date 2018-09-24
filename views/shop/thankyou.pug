@@ -1,0 +1,29 @@
+extends shop_common/base
+block css
+block header
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='/logo')
+            img#logo.d-inline-block.mr-1(alt='Logo' src='/static/resto/img/logocafe_black.png' width='117' height='40')
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+            form.form-inline.my-2.my-lg-0
+                ul.navbar-nav.mr-auto
+                    li.nav-item.mx-3.my-3
+                        a.btn.btn-warning.btn-md.text-uppercase(href='/foodmenu') Continue Shopping
+                    li.nav-item.mx-3.my-2
+                        a.btn.btn-outline-danger.btn-md.text-uppercase.my-2(href='/logo') Go to Home
+
+block content
+    .container.my-5
+        .py-5.form-inline.justify-content-center.card
+            h2.text-center.my-5 THANK YOU !
+            .card-footer
+                p Your order has been placed successfully.
+                p Delivery fee will be calculated at the time of cash on delivery!
+                p Please prepare the amount in cash for Cash on Delivery.
+
+            .col-md-6.order-md-2.my-3
+                hr
+                a.btn.btn-primary.btn-lg.btn-block(href='/logo', title='Confirm') Confirm
