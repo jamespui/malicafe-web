@@ -6,5 +6,6 @@ app.use(require('./v1/food'));
 app.use(require('./v1/cart'));
 app.use(require('./v1/fee'));
 app.use(require('./v1/order'));
+app.use(require('./v1/feedback'));
 
 module.exports = app;

@@ -1,0 +1,58 @@
+extends admin_common/base
+
+block content
+    div(ng-app='app' ng-controller='ctr' ng-cloak)
+        .my-5
+            .row
+                .col-8
+                    h4 Feedback
+            hr
+            table.table
+                thead
+                    tr
+                        th(scope='col') #
+                        th Name
+                        th Email
+                        th Message
+                tbody
+                    tr(ng-repeat='data in feebackD')
+                        th(scope='row') {{$index+1}}
+                        td {{data.name}}
+                        td {{data.email}}
+                        td {{data.message}}
+
+
+block scripts
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+
+        app.config(['$httpProvider', function($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function($scope, $http) {
+
+                $scope.getFunc = function() {
+                    $http({
+                        method: 'GET',
+                        url: '/api/feedback/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.feebackD = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+            }]);
+
+
