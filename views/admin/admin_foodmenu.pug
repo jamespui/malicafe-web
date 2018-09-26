@@ -25,7 +25,7 @@ block content
                         th
                             img.rounded-circle(ng-src='{{data.image_file}}' width='80px' height='80px')
                         td {{data.name}}
-                        td {{data.description}}
+                        td(style='max-width:50px') {{data.description}}
                         td RM {{data.price| number:2}}
                         td
                             button.btn.btn-danger(ng-click='fooddelete(data._id)') Delete

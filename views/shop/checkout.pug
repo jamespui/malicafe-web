@@ -46,6 +46,7 @@ block content
                         strong RM 6.00
             .col-md-7.order-md-1
                 h4.mb-3 Shipping Address
+                pre {{orderData|json}}
                 .form-group
                     label Name
                     input.form-control(type='text' ng-model='orderData.name')
@@ -106,6 +107,23 @@ block scripts
                     );
                 };
                 $scope.postFunc();
+
+                $scope.orderData = {};
+                $scope.placeFunc = function () {
+                    $http({
+                        method: 'POST',
+                        url: '/api/order/create',
+                        data: $scope.orderData
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.placeFunc();
 
                 $scope.removeCartItem = function (id) {
                     $http({

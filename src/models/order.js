@@ -10,7 +10,7 @@ const orderSchema = new Schema({
         street: String,
         postcode: String,
         town: String,
-        city: String,
+        state: String,
     },
     cartItem: {
         food: {type: ObjectId, ref: 'Food'},

@@ -9,6 +9,12 @@ app.post('/order/create', function(req, res) {
         userID: req.user._id,
         name: req.body.name,
         phone: req.body.phone,
+        address: {
+            street: req.body.address.street,
+            postcode: req.body.address.postcode,
+            town: req.body.address.town,
+            state: req.body.address.state,
+        },
         money: {
             subtotal: req.body.subtotal,
             deliveryFee: req.body.totaldeliveryfee,

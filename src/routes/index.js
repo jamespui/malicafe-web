@@ -43,23 +43,4 @@ app.get('/checkout', function(req, res) {
 });*/
 
 
-// Admin Area
-// =============================
-app.get('/admin/dashboard', function(req, res) {
-    res.render('admin/admin_dashboard', {title: 'Admin Dashboard'});
-});
-
-app.get('/admin/food/menu', function(req, res) {
-    res.render('admin/admin_foodmenu', {title: 'Food Menu'});
-});
-
-app.get('/admin/feedback', function(req, res) {
-    res.render('admin/admin_feedback', {title: 'Feedback'});
-});
-
-
-app.get('/admin/settings', function(req, res) {
-    res.render('admin/admin_settings', {title: 'Admin Settings'});
-});
-
 module.exports = app;

@@ -10,12 +10,29 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/foodmenu', function(req, res) {
+    app.get('/foodmenu', isLoggedIn, function(req, res) {
         res.render('shop/foodmenu', {title: 'Menu', user: req.user});
     });
 
-    app.get('/checkout', function(req, res) {
+    app.get('/checkout', isLoggedIn, function(req, res) {
         res.render('shop/checkout', {title: 'Summary', user: req.user});
+    });
+
+    // ADMIN
+    app.get('/admin/dashboard', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_dashboard', {title: 'Admin Dashboard', user: req.user});
+    });
+
+    app.get('/admin/food/menu', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_foodmenu', {title: 'Food Menu', user: req.user});
+    });
+
+    app.get('/admin/feedback', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_feedback', {title: 'Feedback', user: req.user});
+    });
+
+    app.get('/admin/settings', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_settings', {title: 'Admin Settings', user: req.user});
     });
 
     // LOGOUT ==============================
@@ -38,6 +55,17 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
         res.render('account/login', {message: req.flash('loginMessage')});
     });
+
+    app.get('/admin/login', function(req, res) {
+        res.render('admin/admin_login', {message: req.flash('loginMessage')});
+    });
+
+    // process the login form
+    app.post('/adminlogin', passport.authenticate('local-login', {
+        successRedirect: '/admin/dashboard', // redirect to the secure profile section
+        failureRedirect: '/admin/login', // redirect back to the signup page if there is an error
+        failureFlash: true // allow flash messages
+    }));
 
     // process the login form
     app.post('/login', passport.authenticate('local-login', {
@@ -98,6 +126,12 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
-
     res.redirect('/');
+}
+
+function isadminLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/admin/login');
 }

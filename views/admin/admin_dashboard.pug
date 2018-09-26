@@ -3,19 +3,25 @@ extends admin_common/base
 block content
     div(ng-app='app' ng-controller='ctr' ng-cloak)
         .row
-            .col-6
+            .col-4
                 .card
                     .card-header
                         h4 Total User
                     .card-body.text-center
                         h1 {{userData.length}}
-            .col-6
+            .col-4
                 .card
                     .card-header
                         h4 Total Food
                     .card-body.text-center
                         h1 {{foodData.length}}
 
+            .col-4
+                .card
+                    .card-header
+                        h4 Total Order
+                    .card-body.text-center
+                        h1 {{foodData.length}}
 
         .my-5
             h4 New User Register
