@@ -15,6 +15,9 @@ app.post('/order/create', function(req, res) {
             town: req.body.address.town,
             state: req.body.address.state,
         },
+        cartItem: [
+
+        ],
         money: {
             subtotal: req.body.subtotal,
             deliveryFee: req.body.totaldeliveryfee,

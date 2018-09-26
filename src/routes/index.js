@@ -17,10 +17,6 @@ app.get('/forgotpassword', function(req, res) {
     res.render('account/forgotpassword', {title: 'Forgot Password'});
 });
 
-/* app.get('/myaccount', function(req, res) {
-    res.render('account/myaccount', {title: 'My Account'});
-});*/
-
 app.get('/editaddress', function(req, res) {
     res.render('account/editaddress', {title: 'My Account'});
 });
@@ -32,15 +28,5 @@ app.get('/address', function(req, res) {
 app.get('/thankyou', function(req, res) {
     res.render('shop/thankyou', {title: 'Address'});
 });
-
-
-app.get('/checkout', function(req, res) {
-    res.render('shop/checkout', {title: 'CheckOut'});
-});
-
-/* app.get('/mycart', function(req, res) {
-    res.render('shop/mycart', {title: 'MyCart'});
-});*/
-
 
 module.exports = app;

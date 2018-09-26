@@ -39,7 +39,7 @@ app.post('/cart/read', function(req, res) {
             }
         })
         .exec(function(err, obj) {
-            console.log(obj);
+            // console.log(obj);
             res.json(obj);
         });
 });
@@ -49,7 +49,7 @@ app.post('/cart/delete', function(req, res) {
     let cartData = mongoose.model('Cart');
     cartData.findOne({_id: req.body.cartid})
         .exec(function(err, obj) {
-            console.log(obj);
+            // console.log(obj);
             obj.meta.is_delete = true;
             obj.save();
         });

@@ -1,26 +1,67 @@
 extends ../common/base-myaccount
 block css
 block content
-    section.probootstrap-section
+    section(ng-app='app', ng-controller='ctr')
         .container
-            .probootstrap-animate
-                .probootstrap-animate
-                    .probootstrap-heading.dark.my-5.pt-3
-                        h2.text MY ACCOUNT
-                        hr
-                        .col-md-12
-                            //.form-group
-                                label Your name :
-                            .form-group
-                                label Email : &nbsp
-                                if user
-                                    if user.local.email
-                                        =user.local.email
-                            //.form-group
-                                label Phone number :
-                                hr
-                            .flex-container
-                                .col-lg-12.col-md-12.my-5.pt-5
-                                    .text-center
-                                        a.btn.btn-warning.btn-lg.text-uppercase.mx-3.my-4(href='/logo') Back to main page
-                                        a.btn.btn-warning.btn-lg.text-uppercase.mx-3(href='/foodmenu') go to Food Menu
+            .my-5.pt-3
+                h2.text MY ACCOUNT
+                hr
+                .col-md-12
+                    .form-group
+                        label Email : &nbsp
+                        if user
+                            if user.local.email
+                                =user.local.email
+                    .flex-container
+                        .col-lg-12.col-md-12.my-5.pt-5
+                            .text-center
+                                a.btn.btn-warning.btn-lg.text-uppercase.mx-3.my-4(href='/logo') Back to main page
+                                a.btn.btn-warning.btn-lg.text-uppercase.mx-3(href='/foodmenu') go to Food Menu
+
+                h2.text MY ORDER
+                hr
+                .col-md-12
+                    table.table.table-responsive
+                        thead
+                            tr
+                                th No
+                                th Order ID
+                        tbody
+                            tr(ng-repeat='data in orderData')
+                                td {{$index+1}}
+                                td {{data._id}}
+block scripts
+    script(src='../static/vendor/js/angular.min.js')
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+        function getGETParam(name) {
+            return (location.search.split(name + '=')[1] || '').split('&')[0];
+        }
+
+        app.config(['$httpProvider', function ($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function ($scope, $http) {
+                $scope.postFunc = function () {
+                    $http({
+                        method: 'POST',
+                        url: '/api/order/read',
+                        data: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.postFunc();
+            }]);

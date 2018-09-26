@@ -36,13 +36,16 @@ block content
 
                     li.list-group-item.d-flex.justify-content-between
                         h5 SubTotal
+                        input(type='text' ng-model='orderData.cartItem.data')
                         strong RM 16.00
                     li.list-group-item.d-flex.justify-content-between
                         h5 Delivery Fee
+                        input(type='text' ng-model='')
                         strong RM 6.00
                     li.list-group-item.d-flex.justify-content-between
                         h4
                             b Total
+                        input(type='text' ng-model='')
                         strong RM 6.00
             .col-md-7.order-md-1
                 h4.mb-3 Shipping Address
@@ -70,7 +73,7 @@ block content
                     .custom-control.custom-checkbox
                         input#save-info.custom-control-input(type='checkbox')
 
-                    button.btn.btn-primary.btn-lg.btn-block(href='/checkout', type='submit') Continue to Checkout
+                    button.btn.btn-primary.btn-lg.btn-block(ng-click='placeFunc()') Continue to Checkout
 
                     
 block scripts
@@ -108,7 +111,11 @@ block scripts
                 };
                 $scope.postFunc();
 
-                $scope.orderData = {};
+                $scope.orderData = {
+                    cartItem: [{
+
+                    }]
+                };
                 $scope.placeFunc = function () {
                     $http({
                         method: 'POST',
@@ -123,7 +130,6 @@ block scripts
                         }
                     );
                 };
-                $scope.placeFunc();
 
                 $scope.removeCartItem = function (id) {
                     $http({

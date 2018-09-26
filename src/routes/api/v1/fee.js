@@ -33,9 +33,8 @@ app.post('/shipping/delete', function(req, res) {
     let shippingdata = mongoose.model('Fee');
     shippingdata.findOne({_id: req.body.shippingid})
         .exec(function(err, obj) {
-            console.log(obj);
-            obj.meta.is_delete = true;
-            obj.save();
+            //obj.meta.is_delete = true;
+            obj.remove();
         });
     res.json({
         success: true,
