@@ -1,7 +1,7 @@
 extends shop_common/base
 block css
 block header
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    nav.navbar.navbar-expand-lg.navbar-light.bg-dark
         a.navbar-brand(href='/logo')
             img#logo.d-inline-block.mr-1(alt='Logo' src='/static/resto/img/logocafe_black.png' width='117' height='40')
         button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
@@ -11,7 +11,7 @@ block header
             form.form-inline.my-2.my-lg-0
                 ul.navbar-nav.mr-auto
                     li.nav-item.mx-3.my-3
-                        a.btn.btn-warning.btn-md.text-uppercase(href='/foodmenu') Continue Shopping
+                        a.btn.btn-outline-warning.btn-md.text-uppercase(href='/foodmenu') Continue Shopping
                     li.nav-item.mx-3.my-2
                         a.btn.btn-outline-danger.btn-md.text-uppercase.my-2(href='/logo') Go to Home
 
