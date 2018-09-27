@@ -20,10 +20,10 @@ html
                             form(action='/adminlogin', method='post')
                                 .form-group
                                     label Email
-                                    input.form-control(type='text' name='email')
+                                    input.form-control(type='text' name='email' required='')
                                 .form-group
                                     label Password
-                                    input.form-control(type='password' name='password')
+                                    input.form-control(type='password' name='password' required='')
                                 .text-center
                                     button.btn.btn-primary(type='submit') Login
 
