@@ -87,6 +87,12 @@ block scripts
                         }).then(
                             function successCallback(response) {
                                 console.log(response.data);
+                                $.jnoty('Food is added to your cart.', {
+                                    sticky: true,
+                                    header: 'Success',
+                                    theme: 'jnoty-success',
+                                    icon: 'fa fa-check-circle'
+                                });
                             },
 
                             function errorCallback(response) {

@@ -10,18 +10,15 @@ html(lang='en')
         title #{title}
         link(rel='stylesheet' href='../static/vendor/css/bootstrap.min.css')
         link(rel='stylesheet' href='../static/vendor/css/shop-skin/menu.css')
-        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css' integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU' crossorigin='anonymous')
-        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')
+        link(rel='stylesheet' href='../static/vendor/css/jnoty.css')
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css')
         block css
     body
         block header
         block content
-        script(src='../static/vendor/js/jquery-slim.min.js')
+        include ../shop_common/footer_2.pug
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
         script(src='../static/vendor/js/popper.min.js')
         script(src='../static/vendor/js/bootstrap.min.js')
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')
-        block footer
-            include ../shop_common/footer_2.pug
+        script(src='../static/vendor/js/jnoty.js')
         block scripts
-            script.
-                toastr.info('Are you the 6 fingered man?')
