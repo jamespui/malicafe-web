@@ -7,7 +7,7 @@ block content
                 .card-body
                     .row
                         .col-8
-                            h4 Shipping Rate
+                            h4 Delivery Rate
                         .col-4
                             .text-right
                                 button.btn.btn-default(data-toggle="modal" data-target="#exampleModal") Add New
@@ -17,7 +17,7 @@ block content
                             tr
                                 th(scope='col') #
                                 th Postcode
-                                th Shipping Fee
+                                th Delivery Fee
                                 th Action
                         tbody
                             tr(ng-repeat='data in shipData')
@@ -41,7 +41,7 @@ block content
                             label Postcode
                             input.form-control(type='text' ng-model='shipping.postcode')
                         .form-group
-                            label Shipping Fee (RM)
+                            label Delivery Fee (RM)
                             input.form-control(type='number' ng-model='shipping.fee')
                     .modal-footer
                         button.btn.btn-primary(type='button' data-dismiss='modal' ng-click='postFee()') Create
