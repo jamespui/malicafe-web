@@ -31,6 +31,10 @@ module.exports = function(app, passport) {
         res.render('admin/admin_feedback', {title: 'Feedback', user: req.user});
     });
 
+    app.get('/admin/order', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_order', {title: 'Admin Order', user: req.user});
+    });
+
     app.get('/admin/settings', isadminLoggedIn, function(req, res) {
         res.render('admin/admin_settings', {title: 'Admin Settings', user: req.user});
     });

@@ -39,7 +39,6 @@ app.post('/cart/read', function(req, res) {
             }
         })
         .exec(function(err, obj) {
-            // console.log(obj);
             res.json(obj);
         });
 });

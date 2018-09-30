@@ -1,0 +1,44 @@
+extends admin_common/base
+
+block content
+    div(ng-app='app' ng-controller='ctr' ng-cloak)
+        pre {{orderData|json}}
+
+block scripts
+    script.
+        const strAppName = 'app';
+        const strCtrName = 'ctr';
+        const app = angular.module(strAppName, []);
+
+        function getGETParam(name) {
+            return (location.search.split(name + '=')[1] || '').split('&')[0];
+        }
+
+        app.config(['$httpProvider', function($httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+
+        app.controller(strCtrName, ['$scope', '$http',
+            function($scope, $http) {
+                let paramID = getGETParam('id');
+                $scope.getFunc = function() {
+                    $http({
+                        method: 'GET',
+                        url: '/api/order/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+
+            }]);
+
+

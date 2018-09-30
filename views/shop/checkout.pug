@@ -94,6 +94,8 @@ block scripts
 
         app.controller(strCtrName, ['$scope', '$http',
             function ($scope, $http) {
+                $scope.cartItem = []
+                var cartItemData = $scope.cartItem
                 $scope.postFunc = function () {
                     $http({
                         method: 'POST',
@@ -103,6 +105,12 @@ block scripts
                         function successCallback(response) {
                             console.log(response.data);
                             $scope.cartData = response.data;
+                            $scope.cartItem = $scope.cartItem.concat(response.data)
+                            console.log(cartItemData)
+                            $scope.orderData = {
+                                cartData: $scope.cartItem
+
+                            };
                         },
 
                         function errorCallback(response) {
@@ -111,11 +119,7 @@ block scripts
                 };
                 $scope.postFunc();
 
-                $scope.orderData = {
-                    cartItem: [{
 
-                    }]
-                };
                 $scope.placeFunc = function () {
                     $http({
                         method: 'POST',

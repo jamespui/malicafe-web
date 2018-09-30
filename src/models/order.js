@@ -12,9 +12,7 @@ const orderSchema = new Schema({
         town: String,
         state: String,
     },
-    cartItem: [{
-        cartID: {type: ObjectId, ref: 'Cart'}
-    }],
+    cartData: JSON,
     money: {
         subtotal: Number,
         deliveryFee: Number,

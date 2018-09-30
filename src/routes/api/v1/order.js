@@ -3,6 +3,21 @@ const app = new express.Router();
 const mongoose = require('mongoose');
 const orderModel = require('../../../models/order');
 
+processCartDataToOrder = function(cartData) {
+    let userID = cartData.cartObj[0].userID;
+
+    let cartItem = cartData.cartObj.map(function(data) {
+        data = data.cartItem;
+        return data;
+    });
+
+    let data = {
+        userID: userID,
+        cartItem: cartItem,
+    };
+    return data;
+};
+
 // add shipping
 app.post('/order/create', function(req, res) {
     let data = {
@@ -15,17 +30,15 @@ app.post('/order/create', function(req, res) {
             town: req.body.address.town,
             state: req.body.address.state,
         },
-        cartItem: [
-
-        ],
+        cartData: req.body.cartData,
         money: {
             subtotal: req.body.subtotal,
             deliveryFee: req.body.totaldeliveryfee,
             total: req.body.totalOrder
         },
     };
-    let orderObj = new orderModel(data);
-    orderObj.save();
+    let objObj = new orderModel(data);
+    objObj.save();
     res.json({
         success: true,
         msg: 'Your Order Is Place Success',
@@ -58,10 +71,42 @@ app.post('/order/read', function(req, res) {
 // read order all
 app.get('/order/read/all', function(req, res) {
     let orderdata = mongoose.model('Order');
-    orderdata.find({'meta.is_delete': false},
-        function(err, response) {
-            if (err) return console.error(err);
-            res.json(response);
+    orderdata
+        .find({'meta.is_delete': false},
+            function(err, response) {
+                if (err) return console.error(err);
+            })
+        .populate({
+            path: '._id'
+        })
+        .populate({
+            path: 'userID',
+            select: {
+                'local.email': 1
+            }
+        })
+        .exec(function(err, obj) {
+            console.log(obj);
+            res.json(obj);
+        });
+});
+
+app.get('/order/read/one', function(req, res) {
+    let orderdata = mongoose.model('Order');
+    orderdata
+        .find({'meta.is_delete': false, '_id': req.body.orderid},
+            function(err, response) {
+                if (err) return console.error(err);
+            })
+        .populate({
+            path: 'userID',
+            select: {
+                'local.email': 1
+            }
+        })
+        .exec(function(err, obj) {
+            console.log(obj);
+            res.json(obj);
         });
 });
 
