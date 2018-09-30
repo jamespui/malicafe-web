@@ -1,5 +1,10 @@
 extends ../common/base.pug
 block css
+    style.
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
 block content
     section.probootstrap-section
         div(ng-app='appLogin' ng-controller='ctrLogin')
@@ -10,31 +15,32 @@ block content
                             br
                             br
                             br
-                            h1.primary-heading Welcome Back
+                            h1.primary-heading Malicafe
                             h3.secondary-heading login
-                    .col-md-12
-                        hr
-                        form(action='/login', method='post')
-                            .form-group
-                                label Email
-                                input.form-control(type='text', name='email' required='')
-                            .form-group
-                                label Password
-                                input.form-control(type='password', name='password' required='')
+                    .flex-container
+                        .col-lg-6.col-md-12
+                            hr
+                            p(style='color:red') #{message}
+                            form(action='/login', method='post')
+                                .form-group
+                                    label Email
+                                    input.form-control(type='text', name='email' required='')
+                                .form-group
+                                    label Password
+                                    input.form-control(type='password', name='password' required='')
 
-                            .row
-                                .col-lg-6.col-12
-                                    a.text-muted(href="/forgotpassword") Forgot your password?
-                            br
-                            .my-3.text-center
-                                button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit', title='Login') Login
-                                a.btn.btn-danger.btn-lg(href='/logo', title='Main Page') Main Page
-                            .text-center
+                                .row
+                                    .col-lg-6.col-12
+                                        a.text-muted(href="/forgotpassword") Forgot your password?
                                 br
-                                | Don't have an account? &nbsp
-                                a(href='/register', title='Register') Create One
-
-
-
+                                .my-3.text-center
+                                    button.btn.btn-primary.btn-lg.text-uppercase.w-50(type='submit', title='Login') Login
+                                    br
+                                    br
+                                    a.btn.btn-danger.btn-lg(href='/logo', title='Main Page') Main Page
+                                .text-center
+                                    br
+                                    | Don't have an account? &nbsp
+                                    a(href='/register', title='Register') Create One
 
 block scripts
