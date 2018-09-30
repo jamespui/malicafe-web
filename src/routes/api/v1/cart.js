@@ -38,7 +38,21 @@ app.post('/cart/read', function(req, res) {
                 'image_file': 1
             }
         })
+        .lean()
         .exec(function(err, obj) {
+            let cartTotal = 0;
+            let cartItemCount = 0;
+            obj.map(function(data) {
+                let dat = data.cartItem;
+                // Food Price
+                dat.totalPrice = data.cartItem.food.price*data.cartItem.quantity;
+                // delete dat.itemType.price;
+                cartItemCount += 1;
+                // End food price
+                dat.cartItemTotal = dat.priceTotal;
+                cartTotal += dat.cartItemTotal;
+                return data;
+            });
             res.json(obj);
         });
 });
