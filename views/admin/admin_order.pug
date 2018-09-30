@@ -2,7 +2,6 @@ extends admin_common/base
 
 block content
     div(ng-app='app' ng-controller='ctr' ng-cloak)
-        pre {{orderData|json}}
         .my-5
             .row
                 .col-8
@@ -15,17 +14,17 @@ block content
                         th Name
                         th Phone
                         th Email
-                        th Food Price
+                        th Total Pay
                         th Action
                 tbody
-                    tr(ng-repeat='data in orderData')
+                    tr(ng-repeat='data in orderData | orderBy:"-createdAt"')
                         th(scope='row') {{$index+1}}
                         th {{data.name}}
                         td {{data.phone}}
                         td {{data.userID.local.email}}
-                        td RM {{data.price| number:2}}
+                        td RM {{data.money.total| number:2}}
                         td
-                            button.btn.btn-danger(ng-click='fooddelete(data._id)') Delete
+                            a.btn.btn-info(href='/admin/order/view?id={{data._id}}') View Order
 
 block scripts
     script.

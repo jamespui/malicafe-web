@@ -43,14 +43,15 @@ app.post('/cart/read', function(req, res) {
             let cartTotal = 0;
             let cartItemCount = 0;
             obj.map(function(data) {
-                let dat = data.cartItem;
+                let dat = data;
                 // Food Price
-                dat.totalPrice = data.cartItem.food.price*data.cartItem.quantity;
+                dat.cartItem.totalPrice = data.cartItem.food.price*data.cartItem.quantity;
                 // delete dat.itemType.price;
                 cartItemCount += 1;
                 // End food price
-                dat.cartItemTotal = dat.priceTotal;
+                dat.cartItemTotal = dat.cartItem.totalPrice;
                 cartTotal += dat.cartItemTotal;
+                dat.subtotal = cartTotal;
                 return data;
             });
             res.json(obj);

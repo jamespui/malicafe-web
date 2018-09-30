@@ -2,7 +2,62 @@ extends admin_common/base
 
 block content
     div(ng-app='app' ng-controller='ctr' ng-cloak)
-        pre {{orderData|json}}
+        .my-5
+            .row
+                .col-8
+                    h4 Order Details
+
+            .row(ng-repeat='data in orderData')
+                .col-lg-6.col-12
+                    .card
+                        .card-header
+                            h5 User Details
+                        .card-body
+                            p Name : {{data.name}}
+                            p Email : {{data.userID.local.email}}
+                            p Phone : {{data.phone}}
+                .col-lg-6.col-12
+                    .card
+                        .card-header
+                            h5 User Address
+                        .card-body
+                            p Street : {{data.address.street}}
+                            p Postcode : {{data.address.postcode}}
+                            p Town : {{data.address.town}}
+                            p State : {{data.address.state}}
+
+                .col-12
+                    .card.my-4
+                        .card-header
+                            h5 Food Order
+                        .card-body
+                            table.table
+                                thead
+                                    tr
+                                        th(scope='col') #
+                                        th Image
+                                        th Name
+                                        th Quantity
+                                        th Price
+                                tbody
+                                    tr(ng-repeat='fooddata in data.cartData')
+                                        th(scope='row') {{$index+1}}
+                                        th
+                                            img.rounded-circle(ng-src='{{fooddata.cartItem.food.image_file}}' width='80px' height='80px')
+                                        td {{fooddata.cartItem.food.name}}
+                                        td {{fooddata.cartItem.quantity}}
+                                        td RM {{fooddata.cartItem.totalPrice| number:2}}
+
+                .col-12
+                    .card.my-4
+                        .card-header
+                            h5 Price
+                        .card-body
+                            p Subtotal : RM {{data.money.subtotal| number:2}}
+                            p Delivery Fee : RM {{data.money.deliveryFee| number:2}}
+                            p Total Pay (COD) : RM {{data.money.total| number:2}}
+
+
 
 block scripts
     script.
@@ -22,11 +77,11 @@ block scripts
         app.controller(strCtrName, ['$scope', '$http',
             function($scope, $http) {
                 let paramID = getGETParam('id');
-                $scope.getFunc = function() {
+                $scope.postFunc = function () {
                     $http({
-                        method: 'GET',
-                        url: '/api/order/read/all',
-                        params: {}
+                        method: 'POST',
+                        url: '/api/order/read/one',
+                        data: {orderid:paramID}
                     }).then(
                         function successCallback(response) {
                             console.log(response.data);
@@ -36,8 +91,9 @@ block scripts
                         function errorCallback(response) {
                         }
                     );
+
                 };
-                $scope.getFunc();
+                $scope.postFunc();
 
             }]);
 

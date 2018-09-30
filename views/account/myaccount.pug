@@ -12,24 +12,37 @@ block content
                         if user
                             if user.local.email
                                 =user.local.email
+
+                h2.text MY ORDER
+                hr
+                .col-md-12
+                    table.table(ng-show='orderData')
+                        thead
+                            tr
+                                th(scope='col') #
+                                th Name
+                                th Phone
+                                th Food Order
+                                th Subtotal
+                                th Delivery Fee
+                                th Total Pay (COD)
+                        tbody
+                            tr(ng-repeat='data in orderData | orderBy:"-createdAt"')
+                                th(scope='row') {{$index+1}}
+                                th {{data.name}}
+                                td {{data.phone}}
+                                td
+                                    div(ng-repeat='fooddata in data.cartData')
+                                        p {{fooddata.cartItem.food.name}} ({{fooddata.cartItem.quantity}})
+                                td RM {{data.money.subtotal| number:2}}
+                                td RM {{data.money.deliveryFee| number:2}}
+                                td RM {{data.money.total| number:2}}
+
                     .flex-container
                         .col-lg-12.col-md-12.my-5.pt-5
                             .text-center
                                 a.btn.btn-warning.btn-lg.text-uppercase.mx-3.my-4(href='/logo') Back to main page
                                 a.btn.btn-warning.btn-lg.text-uppercase.mx-3(href='/foodmenu') go to Food Menu
-
-                h2.text MY ORDER
-                hr
-                .col-md-12
-                    table.table.table-responsive
-                        thead
-                            tr
-                                th No
-                                th Order ID
-                        tbody
-                            tr(ng-repeat='data in orderData')
-                                td {{$index+1}}
-                                td {{data._id}}
 block scripts
     script(src='../static/vendor/js/angular.min.js')
     script.

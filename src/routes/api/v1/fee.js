@@ -28,6 +28,16 @@ app.get('/shipping/read/all', function(req, res) {
         });
 });
 
+app.post('/shipping/read/one', function(req, res) {
+    let shippingdata = mongoose.model('Fee');
+    shippingdata
+        .find({'postcode': req.body.postcode},
+            function(err, response) {
+                if (err) return console.error(err);
+                res.json(response);
+            });
+});
+
 // delete shipping
 app.post('/shipping/delete', function(req, res) {
     let shippingdata = mongoose.model('Fee');

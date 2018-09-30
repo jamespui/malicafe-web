@@ -21,19 +21,40 @@ block content
                     .card-header
                         h4 Total Order
                     .card-body.text-center
-                        h1 {{foodData.length}}
+                        h1 {{orderData.length}}
 
         .my-5
-            h4 New User Register
+            h4 Recently New User
             table.table
                 thead
                     tr
                         th(scope='col') #
                         th(scope='col') User
                 tbody
-                    tr(ng-repeat='data in userData')
+                    tr(ng-repeat='data in userData | orderBy:"-createdAt" | limitTo : "5"')
                         th(scope='row') {{$index+1}}
                         td {{data.local.email}}
+
+        .my-5
+            h4 Recently New Order
+            table.table
+                thead
+                    tr
+                        th(scope='col') #
+                        th Name
+                        th Phone
+                        th Email
+                        th Total Pay
+                        th Action
+                tbody
+                    tr(ng-repeat='data in orderData | orderBy:"-createdAt" | limitTo : "5"')
+                        th(scope='row') {{$index+1}}
+                        th {{data.name}}
+                        td {{data.phone}}
+                        td {{data.userID.local.email}}
+                        td RM {{data.money.total| number:2}}
+                        td
+                            a.btn.btn-info(href='/admin/order/view?id={{data._id}}') View Order
 
 
 block scripts
@@ -87,6 +108,56 @@ block scripts
                     );
                 };
                 $scope.getFood();
+
+                $scope.getOrder = function () {
+                    $http({
+                        method: 'GET',
+                        url: '/api/order/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getOrder();
+
+                $scope.getFunc = function () {
+                    $http({
+                        method: 'GET',
+                        url: '/api/order/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
+                $scope.getFunc();
+
+                $scope.viewOrder = function () {
+                    $http({
+                        method: 'GET',
+                        url: '/api/order/read/all',
+                        params: {}
+                    }).then(
+                        function successCallback(response) {
+                            console.log(response.data);
+                            $scope.orderData = response.data;
+                        },
+
+                        function errorCallback(response) {
+                        }
+                    );
+                };
             }]);
 
 

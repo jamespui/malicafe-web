@@ -3,21 +3,6 @@ const app = new express.Router();
 const mongoose = require('mongoose');
 const orderModel = require('../../../models/order');
 
-processCartDataToOrder = function(cartData) {
-    let userID = cartData.cartObj[0].userID;
-
-    let cartItem = cartData.cartObj.map(function(data) {
-        data = data.cartItem;
-        return data;
-    });
-
-    let data = {
-        userID: userID,
-        cartItem: cartItem,
-    };
-    return data;
-};
-
 // add shipping
 app.post('/order/create', function(req, res) {
     let data = {
@@ -32,9 +17,9 @@ app.post('/order/create', function(req, res) {
         },
         cartData: req.body.cartData,
         money: {
-            subtotal: req.body.subtotal,
-            deliveryFee: req.body.totaldeliveryfee,
-            total: req.body.totalOrder
+            subtotal: req.body.money.subtotal,
+            deliveryFee: req.body.money.deliveryFee,
+            total: req.body.money.total
         },
     };
     let objObj = new orderModel(data);
@@ -55,14 +40,12 @@ app.post('/order/read', function(req, res) {
                 if (err) return console.error(err);
             })
         .populate({
-            path: 'cartItem.food',
+            path: 'userID',
             select: {
-                'name': 1,
-                'price': 1
+                'local.email': 1
             }
         })
         .exec(function(err, obj) {
-            console.log(obj);
             res.json(obj);
         });
 });
@@ -86,12 +69,11 @@ app.get('/order/read/all', function(req, res) {
             }
         })
         .exec(function(err, obj) {
-            console.log(obj);
             res.json(obj);
         });
 });
 
-app.get('/order/read/one', function(req, res) {
+app.post('/order/read/one', function(req, res) {
     let orderdata = mongoose.model('Order');
     orderdata
         .find({'meta.is_delete': false, '_id': req.body.orderid},
@@ -105,7 +87,6 @@ app.get('/order/read/one', function(req, res) {
             }
         })
         .exec(function(err, obj) {
-            console.log(obj);
             res.json(obj);
         });
 });

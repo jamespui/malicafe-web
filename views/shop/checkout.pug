@@ -36,20 +36,17 @@ block content
 
                     li.list-group-item.d-flex.justify-content-between
                         h5 SubTotal
-                        input(type='text' ng-model='orderData.cartItem.data')
-                        strong RM 16.00
+                        strong RM {{subtotal|number:2}}
                     li.list-group-item.d-flex.justify-content-between
                         h5 Delivery Fee
-                        input(type='text' ng-model='')
-                        strong RM 6.00
-                    li.list-group-item.d-flex.justify-content-between
+                        strong(ng-show='deliveryFee') RM {{deliveryFee|number:2}}
+                        strong(ng-hide='deliveryFee') RM 0.00
+                    li.list-group-item.d-flex.justify-content-between(ng-show='finalTotal')
                         h4
                             b Total
-                        input(type='text' ng-model='')
-                        strong RM 6.00
+                        strong RM {{finalTotal|number:2}}
             .col-md-7.order-md-1
                 h4.mb-3 Delivery Address
-                pre {{orderData|json}}
                 .form-group
                     label Name
                     input.form-control(type='text' ng-model='orderData.name')
@@ -64,7 +61,7 @@ block content
                     input.form-control(type='text' ng-model='orderData.address.state')
                 .form-group
                     label Postcode
-                    input.form-control(type='text' ng-model='orderData.address.postcode')
+                    input.form-control(type='text' ng-model='orderData.address.postcode' ng-change="getDeliveryFee()" ng-model-options="{ debounce: 2000 }")
                 .form-group
                     label Phone
                     input.form-control(type='text' ng-model='orderData.phone')
@@ -95,7 +92,6 @@ block scripts
         app.controller(strCtrName, ['$scope', '$http', '$window',
             function ($scope, $http, $window) {
                 $scope.cartItem = []
-                var cartItemData = $scope.cartItem
                 $scope.postFunc = function () {
                     $http({
                         method: 'POST',
@@ -106,24 +102,47 @@ block scripts
                             console.log(response.data);
                             $scope.cartData = response.data;
                             $scope.cartItem = $scope.cartItem.concat(response.data)
-                            console.log(cartItemData)
-                            $scope.orderData = {
-                                cartData: $scope.cartItem
-                            };
+                            $scope.subtotal = $scope.cartItem[$scope.cartItem.length - 1].subtotal;
                         },
 
                         function errorCallback(response) {
                         }
                     );
+
                 };
                 $scope.postFunc();
 
+                $scope.getDeliveryFee = function () {
+                    $http({
+                        method: 'POST',
+                        url: '/api/shipping/read/one',
+                        data: {postcode: $scope.orderData.address.postcode}
+                    }).then(
+                        function successCallback(response) {
+                            $scope.deliveryFee = response.data[0].deliveryfee;
+                            $scope.finalTotal = $scope.subtotal + $scope.deliveryFee
+                        },
 
+                        function errorCallback(response) {
+                        }
+                    );
+                }
                 $scope.placeFunc = function () {
+                    let finalData = {
+                        name: $scope.orderData.name,
+                        phone: $scope.orderData.phone,
+                        address: $scope.orderData.address,
+                        cartData: $scope.cartItem,
+                        money: {
+                            subtotal: $scope.subtotal,
+                            deliveryFee: $scope.deliveryFee,
+                            total: $scope.finalTotal
+                        }
+                    }
                     $http({
                         method: 'POST',
                         url: '/api/order/create',
-                        data: $scope.orderData
+                        data: finalData
                     }).then(
                         function successCallback(response) {
                             console.log(response.data);

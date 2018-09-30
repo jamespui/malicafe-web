@@ -35,6 +35,10 @@ module.exports = function(app, passport) {
         res.render('admin/admin_order', {title: 'Admin Order', user: req.user});
     });
 
+    app.get('/admin/order/view', isadminLoggedIn, function(req, res) {
+        res.render('admin/admin_view_order', {title: 'Admin Order', user: req.user});
+    });
+
     app.get('/admin/settings', isadminLoggedIn, function(req, res) {
         res.render('admin/admin_settings', {title: 'Admin Settings', user: req.user});
     });
@@ -65,7 +69,7 @@ module.exports = function(app, passport) {
     });
 
     // process the login form
-    app.post('/adminlogin', passport.authenticate('local-login', {
+    app.post('/adminlogin', passport.authenticate('local-admin-login', {
         successRedirect: '/admin/dashboard', // redirect to the secure profile section
         failureRedirect: '/admin/login', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
