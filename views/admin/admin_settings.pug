@@ -23,7 +23,7 @@ block content
                             tr(ng-repeat='data in shipData')
                                 th(scope='row') {{$index+1}}
                                 td {{data.postcode}}
-                                td RM {{data.shippingfee | number:2}}
+                                td RM {{data.deliveryFee | number:2}}
                                 td
                                     button.btn.btn-danger(ng-click='shipdelete(data._id)') Delete
 
@@ -32,7 +32,7 @@ block content
             .modal-dialog(role='document')
                 .modal-content
                     .modal-header
-                        h5.modal-title Add New Food
+                        h5.modal-title Add Delivery Fee
                         button.close(type='button', data-dismiss='modal', aria-label='Close')
                             span(aria-hidden='true') ×
                     .modal-body
@@ -52,10 +52,6 @@ block scripts
         const strCtrName = 'ctr';
         const app = angular.module(strAppName, []);
 
-        function getGETParam(name) {
-            return (location.search.split(name + '=')[1] || '').split('&')[0];
-        }
-
         app.config(['$httpProvider', function($httpProvider) {
             $httpProvider.defaults.xsrfCookieName = 'csrftoken';
             $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -63,7 +59,7 @@ block scripts
 
         app.controller(strCtrName, ['$scope', '$http',
             function($scope, $http) {
-                let paramID = getGETParam('id');
+
                 $scope.getFunc = function() {
                     $http({
                         method: 'GET',

@@ -7,13 +7,13 @@ const feeModel = require('../../../models/shipping');
 app.post('/shipping/add', function(req, res) {
     let data = {
         postcode: req.body.postcode,
-        shippingfee: req.body.fee
+        deliveryfee: req.body.fee
     };
     let feeObj = new feeModel(data);
     feeObj.save();
     res.json({
         success: true,
-        msg: 'Shipping Fee Add Success',
+        msg: 'Delivery Fee Add Success',
         data: data
     });
 });
@@ -38,7 +38,7 @@ app.post('/shipping/delete', function(req, res) {
         });
     res.json({
         success: true,
-        msg: 'Shipping Fee is Delete'
+        msg: 'Delivery Fee is Delete'
     });
 });
 

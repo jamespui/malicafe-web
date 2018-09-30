@@ -419,6 +419,12 @@ block scripts
                         function successCallback(response) {
                             $scope.feedbackData = {}
                             console.log(response.data);
+                            $.jnoty('Thank your for your Feedback.', {
+                                sticky: true,
+                                header: 'Success',
+                                theme: 'jnoty-success',
+                                icon: 'fa fa-check-circle'
+                            });
                         },
 
                         function errorCallback(response) {

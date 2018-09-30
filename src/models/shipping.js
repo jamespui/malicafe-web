@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 
 const FeeSchema = new Schema({
     postcode: String,
-    shippingfee: Number,
+    deliveryfee: Number,
     meta: {
         is_delete: {type: Boolean, default: false},
         is_hidden: {type: Boolean, default: false}
