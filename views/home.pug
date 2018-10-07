@@ -345,6 +345,7 @@ block content
                             .form-field
                                 textarea.form-control(ng-model='feedbackData.msg', cols='30', rows='10' required='')
                         .form-group
+                            p(style='color:red') {{validateMsg}}
                             button.btn.btn-primary.btn-lg(ng-click='feedb()') Submit
 
     //END ROW====================================================================================================================
@@ -410,26 +411,40 @@ block scripts
 
         app.controller(strCtrName, ['$scope', '$http',
             function ($scope, $http) {
-                $scope.feedbackData = {}
+                $scope.feedbackData = {
+                    name: '',
+                    email: '',
+                    msg: ''
+                }
                 $scope.feedb = function () {
-                    $http({
-                        method: 'POST',
-                        url: '/api/feedback/add',
-                        data: $scope.feedbackData
-                    }).then(
-                        function successCallback(response) {
-                            $scope.feedbackData = {}
-                            console.log(response.data);
-                            $.jnoty('Thank your for your Feedback.', {
-                                sticky: true,
-                                header: 'Success',
-                                theme: 'jnoty-success',
-                                icon: 'fa fa-check-circle'
-                            });
-                        },
+                    if ($scope.feedbackData.name == '' || $scope.feedbackData.email == '' || $scope.feedbackData.msg == '') {
+                        $scope.validateMsg = 'Please Fill In The Input';
+                    }
+                    else {
+                        $scope.validateMsg = ''
+                        $http({
+                            method: 'POST',
+                            url: '/api/feedback/add',
+                            data: $scope.feedbackData
+                        }).then(
+                            function successCallback(response) {
+                                $scope.feedbackData = {
+                                    name: '',
+                                    email: '',
+                                    msg: ''
+                                }
+                                console.log(response.data);
+                                $.jnoty('Thank your for your Feedback.', {
+                                    sticky: true,
+                                    header: 'Success',
+                                    theme: 'jnoty-success',
+                                    icon: 'fa fa-check-circle'
+                                });
+                            },
 
-                        function errorCallback(response) {
-                        }
-                    );
+                            function errorCallback(response) {
+                            }
+                        );
+                    }
                 }
             }]);

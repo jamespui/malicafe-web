@@ -106,4 +106,19 @@ app.post('/order/delete', function(req, res) {
     });
 });
 
+// order complete
+app.post('/order/complete', function(req, res) {
+    let orderdata = mongoose.model('Order');
+    orderdata.findOne({_id: req.body.orderid})
+        .exec(function(err, obj) {
+            console.log(obj);
+            obj.meta.is_complete = true;
+            obj.save();
+        });
+    res.json({
+        success: true,
+        msg: 'Order Complete'
+    });
+});
+
 module.exports = app;

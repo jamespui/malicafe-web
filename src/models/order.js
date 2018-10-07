@@ -19,6 +19,7 @@ const orderSchema = new Schema({
         total: Number
     },
     meta: {
+        is_complete: {type: Boolean, default: false},
         is_delete: {type: Boolean, default: false},
         is_hidden: {type: Boolean, default: false}
     }

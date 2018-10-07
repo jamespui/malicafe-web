@@ -10,6 +10,7 @@ const CartSchema = new Schema({
     },
     // address: String,
     meta: {
+        is_order: {type: Boolean, default: false},
         is_delete: {type: Boolean, default: false},
         is_hidden: {type: Boolean, default: false}
     }
